@@ -242,13 +242,18 @@ Albert Einstein}
 
 %-------------Capítulo 3-----------------
 \chapter{Solução Proposta: SICAD}
-\par Como solução para a problemática apresentada neste trabalho está sendo proposto o Sistema Colaborativo de Avaliação Docente, SICAD, como ferramenta auxiliar para os discentes da Universidade Federal da Bahia utilizarem, a fim de disponibilizar seus feedbacks e avaliações sobre as disciplinas cursadas pelos mesmos. 
-\par O processo de concepção do SICAD foi realizado inicialmente como uma junção do trabalho já realizado pelo Sistema de Avaliação Docente, o SIAV, da UFBA  mais a funcionalidade dos comentários. A partir deste escopo foram traçados os requisitos da solução que serão descritos abaixo.
+\par Como solução para a problemática apresentada neste trabalho, está sendo proposto o Sistema Colaborativo de Avaliação Docente, SICAD, como ferramenta auxiliar para os discentes da Universidade Federal da Bahia utilizarem, a fim de disponibilizar feedbacks e avaliações sobre as disciplinas cursadas. 
+\par O processo de concepção do SICAD foi realizado inicialmente como uma junção do trabalho já realizado pelo Sistema de Avaliação Docente, o SIAV\footnote{SIAV. Disponível em <\url{www.siav.ufba.br/siav/privado/index.faces}>. Acesso em: 11 nov. 2019.} disponibilizado pela UFBA\footnote{UFBA. Disponível em <\url{www.ufba.br}> . Acesso em: 1 nov. 2019.} com uma funcionalidade de se realizar comentários, que será especificada no subtópico a seguir. A partir deste escopo foram traçados os requisitos da solução que serão descritos abaixo.
 
 \section{ Modelo Conceitual}
+\par 
+Por definição \textbf{modelo conceitual} é um conjunto de suposições baseadas no mundo real que indicarão as regas de negócio de um sistema\cite{mapaconceitual}.
+\par A importância do desenvolvimento de um mapa conceitual no contexto deste trabalho é a representação gráfica do modelo proposto, referente os processos utilizados na utilização do SICAD, a fim de que ele possa ser entendido de forma fluída.
+\par Existem três macros processos   
+
 \section{ Autenticação}
-\par Inicialmente foi pensado em um login básico para autenticação no sistema. Contudo, analisando o contexto, a cenário abrangeria qualquer usuário logado na internet que possuísse o caminho do sistema, não sendo interessante pois os mesmos teriam acesso a resultados que possuem informações sensíveis.
-\par Para delimitar o acesso ao SICAD, foi utilizado o módulo de autenticação disponibilizado pela UFBA no caminho https://www.autenticacao.ufba.br. Sua utilização segue o seguinte processo: a aplicação no momento do login faz uma requisição à autenticação e a mesma retorna o username caso o usuário possua cadastro na universidade. Segue abaixo o fluxograma do processo.
+\par Inicialmente foi pensado em um login básico para autenticação no sistema. Contudo, analisando o contexto, o cenário abrangeria qualquer usuário logado na internet que possuísse o caminho do sistema, não sendo interessante pois os mesmos teriam acesso a resultados que possuem informações sensíveis.
+\par Para delimitar o acesso ao SICAD, foi utilizado o módulo de \href{https://www.autenticacao.ufba.br}{autenticação} disponibilizado pela UFBA. Sua utilização segue o seguinte processo: a aplicação no momento do login, faz uma requisição à autenticação e a mesma retorna o username \footnote{Username. Disponível em <\url{www.cartilha.cert.br/senhas/}> . Acesso em: 1 nov. 2019.} caso o usuário possua cadastro na universidade. Segue abaixo o fluxograma do processo.
 \begin{figure}[!ht]
 \centering
 \includegraphics[scale=0.50]{processo_autenticacao.jpg}
@@ -260,18 +265,47 @@ Albert Einstein}
 
 \subsection{Usuário e Segurança}
 \par No processo de desenvolvimento  da autenticação ficou claro a necessidade da implementação de uma camada de segurança, visto que a resposta à requisição feita juntamente a UFBA retorna o username do usuário sem nenhum tipo proteção.
-\par A segurança da informação é essencial no sentido de preservar o valor dessa informação que é chave para a maioria das funcionalidades do SICAD. Focanalizando neste ponto foram implementadas rotinas para prover segurança nos processos executados pelo sistema que será descrito abaixo:
+\par A segurança da informação é essencial no sentido de preservar o valor dessa informação que é chave para a maioria das funcionalidades do SICAD. Focando neste ponto foram implementadas rotinas para prover segurança nos processos executados pelo sistema que será descrito nos passos abaixo:
 
 \begin{itemize}
 \item o usuário tenta logar no sistema, consequentemente disparando uma requisição para a autenticação da UFBA;
-\item A ufba executa todos as rotinas de validação.
-Caso postivo, retorna o username do usuario sem criptografia;
-\item O SICAD antes de persistir a informação  no banco de dados, utiliza da tencologia de criptografia Hash SHA256, que será abordada no topico 3,6. para encriptografar o username será chave para utilização do sistema..
+\item A UFBA executa todas as rotinas de validação.
+Caso se obtenha uma resposta positiva, retorna o username do usuário sem criptografia para a aplicação que solicitou a requisição;
+\item O SICAD antes de persistir a informação no banco de dados, utiliza da tecnologia de criptografia Hash SHA256\footnote{Hash SHA256. Disponível em <\url{www.tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910977}> . Acesso em: 2 nov. 2019.}, que será abordada no tópico 3.6. para encriptografar o username que será chave para utilização do sistema.
 \end{itemize}
-\par Por conseguinte, com o usuário criptografado a integridade da informação estará mantida seno assim confiavel que o usuario a utilize sem preocupações
+\par Para melhor fixação segue uma imagem com o fluxo do processo.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.80]{fluxograma_criptografia.jpg}
+\caption{Fluxograma do Processo de Criptografia}
+\label{fig:processo_autenticacao}
+\end{figure}
+\par Por conseguinte, com o usuário criptografado a integridade da informação será mantida sendo assim confiável que o usuário a utilize o sistema de forma segura.
 
 \section{ Perfis}
 \par
+A utilização de perfis de usuários está atrelada a restrição de acesso a funcionalidade do sistema que embora não elimine por completo os riscos à  segurança da informação, diminui em muito a ocorrência de incidentes que comprometam os critérios de confidencialidade, integridade e disponibilidade definidos e exemplificados a seguir.
+\begin{itemize}
+\item \textbf{Confidencialidade:} um princípio de segurança que requer que dados devam somente ser acessados por pessoas autorizadas;
+\item \textbf{Integridade:} um princípio de segurança que garante que dados e itens de configuração somente sejam modificados por pessoas e atividades autorizadas. A integridade considera todas as possíveis causas de modificação, incluindo falhas de hardware e software, eventos ambientais e intervenção humana;
+\item \textbf{Disponibilidade:} o princípio de segurança que que garante que a informação que requer que dados devam ser acessados por pessoas autorizadas, no momento que requisitados.
+\end{itemize}
+\subsection{O controle de Acesso}
+O controle de acessos é um processo de segurança essencial que é até mesmo difícil de imaginar como uma organização teria condições de continuar funcionando sem ele. Daí a importância de se estabelecer na organização uma política de controle de acessos, que deve estar de acordo com os requisitos de negócio e de segurança anteriormente definidos.
+\subsection{Tipos de controle de acesso}
+Essa parte do controle de acesso nas informações da empresa pode basear-se em regras, conforme já mencionamos, bem como em outras diferentes classificações. Dentre os principais tipos de controle que podem ser implantados, podemos destacar os controles de acesso:
+\begin{itemize}
+\item \textbf{Baseado em perfis}
+Também conhecido como Role Based Access Control (RBAC), o acesso é determinado em função de grupos de trabalho (departamentos) ou do próprio cargo exercido pelo usuário. No caso, cada perfil terá seus privilégios aplicados de forma genérica.
+\item \textbf{Mandatório (Obrigatório)}
+Essa classificação de controle costuma ser representada pelo acrônimo MAC (Mandatory Access Control). Por meio desta funcionalidade, é o sistema quem aplica as políticas de acesso, obedecendo às configurações de privilégio (definidas pelo administrador de sistemas) e a rotulação das informações (feita pelo gestor da informação).
+Geralmente, o controle de acesso mandatório é utilizado por empresas que trabalham com dados críticos e sensíveis, ou seja, onde o acesso não autorizado pode acarretar em graves consequências.
+\item  \textbf{Discricionário}
+No controle de acesso discricionário (Discretionary Access Control – DAC), quem determina as regras e critérios de acesso às informações é o proprietário do recurso. Em poucas palavras, o proprietário da informação define os usuários que podem acessá-la.
+Sendo assim, para que esse tipo de controle de acesso nas informações seja implantado corretamente, é necessário que todo e qualquer objeto armazenado no sistema tenha um proprietário e este concederá as permissões de acesso aos devidos usuários.
+Criar o controle de acesso nas informações é um grande passo para assegurar a segurança e integridade dos dados contidos no sistema. No entanto, o processo requer um bom planejamento para que seja escolhido o mecanismo adequado para o perfil da empresa.
+\end{itemize}
+
 \section{ Moderação}
 \section{ Anonimato}
 \section{ Segurança}
