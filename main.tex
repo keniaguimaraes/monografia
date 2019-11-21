@@ -19,13 +19,20 @@
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
-\usepackage{pgfplots}   % pacote para uso do pgfplots
+\usepackage{pgfplots,pgfplotstable}   % pacote para uso do pgfplots
+
+\pgfplotsset{compat=1.3}
+\usepackage{tikz}
 \usepackage{array}
 \usepackage{longtable}
 \usepackage{pdfpages}
-
+\usepackage{tikz}
+\usepackage{graphicx}
 \usepackage{verbatim}
+\usepackage{fullpage}
+\usepackage{pgf-pie}
 \usepackage{enumitem}   
+
 \usepackage{natbib} % criação de linhas
 
 %Includes "References" in the table of contents
@@ -67,7 +74,7 @@ Docente}}
 
 \sc{\Large{Kênia Arruda Guimarães}}
 
-\vspace{5.5cm}
+\vspace{4.95cm}
 
 \textbf{Salvador - Bahia} \\
 Dezembro de 2019
@@ -98,7 +105,7 @@ Monografia apresentada como trabalho de conclusão de curso para o curso de Bach
 \end{minipage}
 \end{flushright}
  
-\vspace{7cm}
+\vspace{6.95cm}
 
 \begin{center}
 \textbf{Salvador - Bahia} \\
@@ -184,7 +191,7 @@ Prof. Fulano de Tal \\ Universidade Federal da Bahia \\
 
 %-----------Dedicatória----------------
 \newpage
-\vspace*{21cm}
+\vspace*{21.9cm}
 \begin{flushright}
 \textit{Dedico este trabalho à minha família}
 \end{flushright}
@@ -221,7 +228,6 @@ Albert Einstein}
 \chapter*{Resumo}
 \thispagestyle{empty}
  
-
 
 %-------------Abstract------------------
 \newpage
@@ -264,8 +270,9 @@ Albert Einstein}
 \chapter{Introdução}
 \section{Contexto}
 \section{Problema}
-\section{Solução}
-
+\label{sec:problema}
+\section{Objetivos}
+\label{sec:obejtivos}
 %-------------Capítulo 2-----------------
 
 \chapter {Trabalhos Relacionados}
@@ -325,28 +332,28 @@ Foi definida uma Comissão de Atividades Docentes (CAD) onde cabe à ela propor 
 
 As avaliações são realizadas em todos os campus da universidades embora nem sempre os critérios e métodos sejam os mesmos podendo variar de unidade para unidade. Porém, existem institutos como o de Física (IF) e o de Matemática e Estatística (IME) que não possuem nenhum tipo de avaliação dos docentes.
 
-No próximo capitulo, já subsidiados de conhecimento sobre como as avaliações institucionais são realizadas nos principais institutos brasileiro de ensino superior e fora do país será explorado todo o processo de concepção da trabalho realizado.
+No próximo capitulo, já subsidiados de conhecimento sobre como as avaliações institucionais são realizadas nos principais institutos brasileiros de ensino superior e fora do país será explorado todo o processo de concepção da trabalho realizado.
 
 
 %-------------Capítulo 3-----------------
 \chapter{Solução Proposta: SICAD}
+\label{chap:solucaoproposta}
 
-Como solução para a problemática apresentada neste trabalho, está sendo proposto o Sistema Colaborativo de Avaliação Docente, SICAD, como ferramenta auxiliar para os discentes da Universidade Federal da Bahia utilizarem, a fim de disponibilizar feedbacks e avaliações sobre as disciplinas cursadas. 
+Como solução para a problemática apresentada neste trabalho no subtópico \ref{sec:problema}, está sendo proposto o Sistema Colaborativo de Avaliação Docente (SICAD). Desenvolvido para ser utilizado como ferramenta auxiliar de avaliação, os discentes da Universidade Federal da Bahia poderão disponibilizar \textit{feedbacks} \footnote{Feedbacks.É uma palavra inglesa que significa dar resposta a uma determinado pedido ou acontecimento.} sobre os docentes e avaliações sobre as disciplinas cursadas, gerando um banco de informações que é contabilizado e apresentado na forma de resultados. 
 
-O processo de concepção do SICAD foi realizado inicialmente como uma junção do trabalho já realizado pelo Sistema de Avaliação Docente, o SIAV\footnote{SIAV. Disponível em <\url{www.siav.ufba.br/siav/privado/index.faces}>. Acesso em: 11 nov. 2019.} disponibilizado pela \ac{UFBA}.\footnote{UFBA. Disponível em <\url{www.ufba.br}> . Acesso em: 1 nov. 2019.} com uma funcionalidade de se realizar comentários, que será especificada no subtópico a seguir. A partir deste escopo foram traçados os requisitos da solução que serão descritos abaixo.
+O processo de concepção do SICAD foi inicialmente enxergado como uma junção do trabalho já realizado pelo Sistema de Avaliação Docente pelo Discente, o SIAV\footnote{SIAV. Disponível em <\url{www.siav.ufba.br/siav/privado/index.faces}>. Acesso em: 11 nov. 2019.} disponibilizado pela \ac{UFBA} com uma funcionalidade de realizar comentários, especificada com mais detalhes no subtópico \ref{subsec:comentario}. A partir deste escopo foram traçados os critérios da solução que serão descritos nos próximos tópicos deste capitulo.
 
 \section{ Modelo Conceitual}
-Por definição \textbf{modelo conceitual} é um conjunto de suposições baseadas no mundo real que indicarão as regas de negócio de um sistema \citep{mapaconceitual}.
+Por definição \textit{modelo conceitual} é um conjunto de suposições baseadas no mundo real que indicarão as regas de negócio de um sistema \citep{mapaconceitual}. Através desta definição, percebe-se a importância do desenvolvimento de um mapa conceitual no contexto deste trabalho.
 
-A importância do desenvolvimento de um mapa conceitual no contexto deste trabalho é a representação gráfica do modelo proposto, referente os processos relacionados ao \ac{SICAD}, a fim de que ele possa ser entendido de forma fluída.
+Sendo representação gráfica dos processos relacionados ao \ac{SICAD}, foram determinados três macros processos a fim de que o totalidade do sistema possa ser entendido de forma fluída.
 
-Existem três macros processos   
 
 \section{ Autenticação}
 
-Inicialmente foi pensado em um login básico para autenticação no sistema, possuindo apenas usuário e senha. Entende-se como login o processo para acessar um sistema informático restrito, utilizando credenciais que são previamente cadastradas pelo usuário nesse sistema com a finalidade da identificação do utilizador. Contudo, analisando o contexto da aplicação o login abrangeria qualquer usuário logado na internet que possuísse o caminho do sistema, não sendo interessante, pois os mesmos teriam acesso a resultados que possuem informações sensíveis.
+Inicialmente para atender a demanda no processo de identificação que existe em qualquer sistema web, foi pensado em um \textit{login} básico para autenticação, possuindo apenas usuário e senha. Entende-se como login o processo para acessar um sistema informático restrito, utilizando credenciais que são previamente cadastradas pelo usuário nesse sistema, com a finalidade da identificação do utilizador. Contudo, como os objetivos da solução apresentados no tópico \ref{sec:obejtivos} possuem um contexto sensível, o login dessa forma mais simples abrangeria qualquer usuário logado na internet que possuísse o caminho do sistema, não sendo interessante, pois os mesmos teriam acesso a resultados que possuem informações direcionadas apenas a comunidade acadêmica da UFBA.
 
-Para delimitar o acesso ao \ac{SICAD}, foi utilizado o módulo de \href{https://www.autenticacao.ufba.br}{autenticação} disponibilizado pela \ac{UFBA}. Seu emprego segue o seguinte processo: a aplicação no ato do login, faz uma requisição à autenticação da \ac{UFBA} e a mesma retorna o username \footnote{Username. Disponível em <\url{www.cartilha.cert.br/senhas/}> . Acesso em: 1 nov. 2019.} caso o usuário possua cadastro na universidade. Na figura \ref{fig:processo_autenticacao} é demonstrado o fluxograma do processo.
+Para delimitar o acesso ao \ac{SICAD}, foi utilizado o módulo de \href{https://www.autenticacao.ufba.br}{autenticação} disponibilizado pela universidade. Seu emprego segue o seguinte processo: uma aplicação no ato do login faz uma requisição à autenticação que por sua vez valida esta mesma requisição e se positiva retorna o \textit{username} \footnote{Username. Disponível em <\url{www.cartilha.cert.br/senhas/}> . Acesso em: 1 nov. 2019.} do usuário cadastrado na rede da universidade. Na figura \ref{fig:processo_autenticacao} é demonstrado o fluxograma do processo.
 
 \begin{figure}
 \centering
@@ -355,21 +362,20 @@ Para delimitar o acesso ao \ac{SICAD}, foi utilizado o módulo de \href{https://
 \label{fig:processo_autenticacao}
 \end{figure}
 
-Dessa forma o acesso ao \ac{SICAD} é restrito a quem possui cadastro na universidade, não expondo assim informações indevidas à usuários que não são elegíveis para utilizar o sistema.
+Dessa forma, o acesso a aplicação fica restrito a quem possui cadastro na universidade, não expondo assim quaisquer informações à usuários que não são elegíveis para utilizar o sistema.
 
 \subsection{Usuário e Segurança}
 
 No processo de desenvolvimento da autenticação ficou claro a necessidade da implementação de uma camada de segurança, visto que a resposta à requisição feita juntamente a \ac{UFBA} retorna o username do usuário sem nenhum tipo proteção.
-A segurança da informação é essencial no sentido de preservar o valor dessa informação que é chave para a maioria das funcionalidades do \ac{SICAD}. Focando neste ponto foram implementadas rotinas para prover segurança nos processos executados pelo sistema que serão descritos nos passos abaixo:
+
+A segurança da informação é essencial no sentido de preservar o valor que o username representa pois ele é chave para a maioria das funcionalidades do \ac{SICAD}. Focando neste ponto, foram implementadas ações para prover segurança nos processos executados pelo sistema descritos nos passos abaixo:
 
 \begin{itemize}
-\item o usuário tenta logar no sistema, consequentemente disparando uma requisição para a autenticação da \ac{UFBA};
-\item A \ac{UFBA} executa todas as rotinas de validação.
-Caso se obtenha uma resposta positiva, retorna o username do usuário sem proteção para a aplicação que solicitou a requisição;
-\item O \ac{SICAD} antes de persistir a informação no banco de dados, utiliza da tecnologia de criptografia Hash SHA256\footnote{Hash SHA256. Disponível em <\url{www.tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910977}> . Acesso em: 2 nov. 2019.}, que será abordada no tópico 3.6. para criptografar o username utilizado como informação chave na utilização do sistema. 
+\item Como ação inicial, o usuário irá logar na aplicação, consequentemente disparando uma requisição para a autenticação da \ac{UFBA};
+\item São executadas todas as rotinas de validação.
+Caso se obtenha uma resposta positiva, é retornado o username do usuário sem proteção para a aplicação que solicitou a requisição;
+\item O \ac{SICAD} antes de persistir a informação no banco de dados, utiliza a tecnologia de criptografia Hash SHA256\footnote{Hash SHA256. É um conjunto de funções hash criptográficas projetadas pela NSA. SHA significa secure hash algorithm.}, que será abordada com mais profundidade no tópico 3.6. para criptografar o username utilizado como informação chave na utilização do sistema. Para melhor fixação, o fluxo do processo está representado na figura \ref{fig:fluxograma_criptografia}.
 \end{itemize}
-
-Para melhor fixação, o fluxo do processo está representado na figura \ref{fig:fluxograma_criptografia}. 
 
 \begin{figure}
 \centering
@@ -378,15 +384,15 @@ Para melhor fixação, o fluxo do processo está representado na figura \ref{fig
 \label{fig:fluxograma_criptografia}
 \end{figure}
 
-Por conseguinte, com o usuário criptografado e devidamente protegido, a integridade da informação será mantida sendo assim confiável que o usuário utilize o sistema de forma segura.
+Por conseguinte, com o usuário criptografado e devidamente protegido, a integridade da informação estará mantida sendo assim confiável que o usuário utilize o sistema de forma segura.
 
 \section{ Perfis}
-A utilização de perfis de usuários está atrelada a restrição de acesso à certas funcionalidades do sistema, que embora não elimine todos os riscos à segurança da informação mas diminui incidentes que possam ocorrer, comprometendo ao conjunto de critérios de segurança conhecido como o tripé da segurança da informação: \textbf{confidencialidade}, \textbf{integridade} e \textbf{disponibilidade}:
+A utilização de perfis de usuários está atrelada a restrição de acesso à certas funcionalidades do sistema, que embora não elimine todos os riscos à segurança da informação mas diminui incidentes que possam ocorrer, comprometendo ao conjunto de critérios de segurança conhecido como o tripé da segurança da informação: \textit{confidencialidade}, \textit{integridade} e \textit{disponibilidade}:
 
 \begin{itemize}
 \item \textbf{Confidencialidade:} É a garantia de que a informação é acessível somente por pessoas autorizadas a terem acesso \cite{iso27002};
 \item \textbf{Integridade:} É a garantia da exatidão e completeza da informação e dos métodos de processamento \cite{iso27002};
-\item \textbf{Disponibilidade:} É a garantia de que os usuários autorizados obtenham acesso à informação e aos ativos correspondentes sempre  que necessário. \cite{iso27002}
+\item \textbf{Disponibilidade:} É a garantia de que os usuários autorizados obtenham acesso à informação e aos ativos correspondentes sempre  que necessário \cite{iso27002}.
 \end{itemize}
 
 No \ac{SICAD} foi implementado controle de perfis considerando critérios de segurança acima para que não ocorra a quebra dos mesmos gerando venerabilidades.
@@ -397,7 +403,7 @@ Um processo de segurança essencial assegurado pelos critérios de segurança é
 
 \subsection{Controle  de  Acesso  Baseado  em  Papéis }
 
-Considerando o cenário dos acessos que foram pensados para o \ac{SICAD}, foi escolhido o modelo de \textbf{controle  de  acesso  baseado  em  papéis} devido a sua adequação à aplicação.
+Considerando o cenário dos acessos que foram pensados para o \ac{SICAD}, foi escolhido o modelo de \textit{controle  de  acesso  baseado  em  papéis} devido a sua adequação à aplicação.
 
 Para \citep{sandhu1997} o modelo Role Based Access Control – RBAC flexibiliza o gerenciamento do controle de acesso através da adição de um componente que intermedeia usuários e permissões. Este, considera quatro componentes básicos:
 \begin{itemize}
@@ -407,10 +413,10 @@ Para \citep{sandhu1997} o modelo Role Based Access Control – RBAC flexibiliza 
 \item \textbf{Sessões}: Quando um usuário acessa o sistema, ele inicia uma \textbf{sessão}, durante  essa  sessão, pode haver  um  ou  mais  papéis ativos. Conforme a especificação do modelo, o usuário pode ter ou não o poder de decidir quais papéis ativar em um dado momento.
 \end{itemize}
 
-Partindo desses quatro componentes foram criados os papéis e permissões do sistema que poderão ser visualizados através da tabela abaixo:
+Partindo desses quatro componentes foram criados os papéis e permissões do sistema que poderão ser visualizados através da tabela \ref{tab:papelperm}.
 
 % ######## init table ########
-\begin{table}[h]
+\begin{table}
  \centering
 % distancia entre a linha e o texto
  {\renewcommand\arraystretch{1.25}
@@ -430,12 +436,15 @@ Partindo desses quatro componentes foram criados os papéis e permissões do sis
   \hline
  \end{tabular} }
  \caption{Papéis e Permissões}
+  \label{tab:papelperm}
 \end{table}
 
-Um usuário poderá ter o papel de administrador ou utilizador associado. Como padrão quando o mesmo realiza o login já é atribuído à ele o papel de \textbf{utilizador}.
-\par Além dos papéis e permissões citados acima, o \ac{SICAD} conta com módulos, que são partes do sistema responsáveis por uma tarefa definida, que estão por sua vez associados aos papéis como é demonstrado pela tabela abaixo:
+Um usuário poderá ter o papel de administrador ou utilizador associado. Como padrão quando o mesmo realiza o login já é atribuído à ele o papel de \textit{utilizador}.
+
+Além dos papéis e permissões citados acima, o \ac{SICAD} conta com módulos, que são partes do sistema responsáveis por uma tarefa definida, que estão por sua vez associados aos papéis como é demonstrado pela tabela  \ref{tab:papelmod}.
+
 % ######## init table ########
-\begin{table}[h]
+\begin{table}
  \centering
 % distancia entre a linha e o texto
  {\renewcommand\arraystretch{1.25}
@@ -476,21 +485,23 @@ Um usuário poderá ter o papel de administrador ou utilizador associado. Como p
   \hline
  \end{tabular} }
  \caption{Papéis e Módulos}
+ \label{tab:papelmod}
 \end{table}
 %rever https://www.teses.usp.br/teses/disponiveis/3/3141/tde-08032013-120904/publico/TeseEduardoTakeoUeda.pdf%
 
 O modelo RBAC além de impedir que um usuário possua papéis conflitantes com ele é possível impor restrições aos papéis, resultando em mais proteção e boa gestão da informação oferecida pelo sistema.
+
 \section{ Principais Funcionalidades}
 
-O \ac{SICAD} foi pensado como uma junção da funcionalidade de avaliar os docentes da universidade tal como é realizado semestralmente através do \ac{SIAC} com uma nova funcionalidade de realizar comentários.
+Como descrito no inicio do capítulo \ref{chap:solucaoproposta}, esta solução foi pensada como uma união da funcionalidade de avaliar os docentes da UFBA com uma nova funcionalidade de realizar comentários.
 
-Os \textbf{comentários} são uma forma do discente compartilhar sua experiência vivida na sala de aula e que poderá ser visualizada por todos os usuários que são elegíveis para utilizar o sistema.
+Os \textit{comentários} são uma forma do discente compartilhar sua experiência vivida na sala de aula e que poderá ser visualizada por todos os usuários que são elegíveis para utilizar o sistema.
 
-As \textbf{avaliações} são um parecer que um discente fornece referente a um docente e seu trabalho ministrando uma dada disciplina, em um dado semestre. O conceito de avaliação foi baseado no que já utilizado pela universidade.
+As \textit{avaliações} são um parecer que um discente fornece referente a um docente e seu trabalho ministrando uma dada disciplina, em um dado semestre. O conceito de avaliação foi baseado no que já é utilizado pela universidade.
 
-Contabilizando as avaliações realizadas pelos estudantes é oferecido pelo \ac{SICAD} os \textbf{resultados}, onde são apresentadas de forma simples e transparente a contabilização dos itens avaliados.
+Contabilizando as avaliações realizadas pelos estudantes é oferecido pelo \ac{SICAD} os \textit{resultados}, onde são apresentadas de forma simples e transparente a contabilização dos itens avaliados.
 
-O utilizador do sistema possui também do recurso de \textbf{ajuda} onde poderá tirar dúvida a respeito do que são comentários, avaliações e resultados em qualquer momento. Podemos observar na figura \ref{fig:home_administrador} a tela incial do sistema.
+O utilizador do sistema possui também do recurso de \textit{ajuda} onde poderá tirar possíveis dúvidas a respeito do que são comentários, avaliações e resultados a qualquer momento. Podemos observar na figura \ref{fig:home_administrador} a tela incial do sistema.
 \begin{figure}
 \centering
 \includegraphics[scale=0.5]{home_administrador.png}
@@ -501,11 +512,10 @@ O utilizador do sistema possui também do recurso de \textbf{ajuda} onde poderá
 Nos próximos tópicos serão descritos as principais funcionalidades de cada módulo disponível no \ac{SICAD}.
 
 \subsection{Comentário}
+\label{subsec:comentario}
 Um comentário tem por objetivo o compartilhamento das experiências vividas e informações pertinentes de uma determinada combinação de disciplina+professor+semestre cursada. Espera-se que sejam compartilhadas informações que gerem conhecimento base para os que não conhecem a disciplina e/ou o trabalho do professor naquela disciplina.
 
-Além dos objetivos citados, os comentários também poderão ser utilizados como sugestões, elogios e críticas sobre o conhecimento ministrado na disciplina+professor+semestre avaliada.
-
-Os comentários no \ac{SICAD} deverão seguir a convenção de não possuir palavras de baixo de calão, gerando assim constrangimento. Abaixo um exemplo de comentário:
+Além dos objetivos citados, os comentários também poderão ser utilizados como sugestões, elogios e críticas sobre o conhecimento ministrado na disciplina+professor+semestre avaliada. Eles deverão seguir a convenção de não possuir palavras de baixo de calão, vulgo palavrões, evitando assim constrangimento e ofensas. Abaixo um exemplo de comentário:
 
 \begin{table}[h]
  \centering
@@ -524,7 +534,7 @@ Os comentários no \ac{SICAD} deverão seguir a convenção de não possuir pala
 O módulo de comentário possui as seguintes ações:
 
 \begin{itemize}
-\item \textbf{Incluir}: Esta funcionalidade permite o usuário incluir um comentário que ficará disponível para os demais usuários. Uma vez realizado, o mesmo passa a possuir a situação de \textbf{comentário público}. Fica obrigatório o utilizador informar a disciplina, o semestre, o professor e o comentário a ser realizado. Na figura \ref{fig:incluir_comentario} observamos um exemplo a tela de inclusão.
+\item \textbf{Incluir}: Esta funcionalidade permite o usuário incluir um comentário que ficará disponível para os demais usuários. Uma vez realizado, o mesmo passa a possuir a situação de \textit{comentário público}. Fica obrigatório o utilizador informar a disciplina, o semestre, o professor e o comentário a ser realizado. Na figura \ref{fig:incluir_comentario} observamos um exemplo a tela de inclusão.
 
 \begin{figure}
 \centering
@@ -549,7 +559,7 @@ O módulo de comentário possui as seguintes ações:
 \label{fig:visualizacao_meu_comentario}
 \end{figure}
 
-\item \textbf{Ocultar/Mostrar}: Estas funcionalidades respectivamente permitem ao usuário ocultar um comentário realizado, ou seja, esse comentário não poderá ser mais visualizado pelos demais, passando a ter a situação de \textbf{comentário oculto}, podendo apenas ser consultado pelo próprio utilizador e para revogar o privilegio de ocultamento o mesmo poderá utilizar a função de mostrar, tornando o \textbf{comentário publico} novamente. Nas figuras \ref{fig:comentario_oculto} e \ref{fig:comentario_publico} visualizamos os exemplos.
+\item \textbf{Ocultar/Mostrar}: Estas funcionalidades respectivamente permitem ao usuário ocultar um comentário realizado, ou seja, esse comentário não poderá ser mais visualizado pelos demais, passando a ter a situação de \textit{comentário oculto}, podendo apenas ser consultado pelo próprio utilizador e para revogar o privilegio de ocultamento o mesmo poderá utilizar a função de mostrar, tornando o \textit{comentário publico} novamente. Nas figuras \ref{fig:comentario_oculto} e \ref{fig:comentario_publico} visualizamos exemplos.
 
 \item \textbf{Denunciar}: Um comentário poderá ser denunciado quando o mesmo infringir a convenção, ou seja, ter palavras de baixo calão em seu conteúdo. Comentários escritos de forma pejorativa dissonante dos objetivos propostos deverão ser denunciados. Todos os participantes que utilizam \acro{SICAD} poderão denunciar comentários inapropriados.
 \begin{figure}
@@ -618,8 +628,7 @@ Através dos resultados os discente poderão visualizar os comentários de acord
 
 \subsection{Ajuda}
 
-Pensando na experiência do utilizador e para proporcionar uma ferramenta de respostas à questionamentos frequentes foi disponibilizado um módulo de ajuda para os usuários do SICAD.
-Nele é possível tirar dúvidas acerca do que são comentários, avaliação e resultados. Podemos visualizar na figura \ref{fig:ajuda} o módulo de ajuda.
+Pensando na experiência do utilizador e para proporcionar uma ferramenta de respostas à questionamentos frequentes foi desenvolvido um módulo de ajuda para os utilizadores do SICAD. Nele é possível tirar dúvidas acerca do que são comentários, avaliação e resultados. Podemos visualizar na figura \ref{fig:ajuda} o módulo de ajuda.
 
 \begin{figure}
 \centering
@@ -629,18 +638,19 @@ Nele é possível tirar dúvidas acerca do que são comentários, avaliação e 
 \end{figure}
 
 \subsection{Carga}
-As informações sobre os cursos, disciplinas e professores que são utilizados no sistema, são disponibilizadas para o público no site da Superintendência de Administração Acadêmica\footnote{SUPAC. Disponível em <\url{www.supac.ufba.br}>. Acesso em: 13 nov. 2019} (SUPAC) na forma de um documento HTML.
+As informações sobre os cursos, disciplinas e professores que são utilizados pelo SICAD, são disponibilizadas para o público no site da Superintendência de Administração Acadêmica (SUPAC) \footnote{SUPAC. Disponível em <\url{www.supac.ufba.br}>. Acesso em: 13 nov. 2019} na forma de um documento HTML\footnote{HTML. É  uma linguagem de marcação utilizada na construção de páginas na Web.}.
+
 
 Na captura dos dados citados acima foi utilizado um processo conhecido como  \textit{web scraper}. Para \cite{laender2002} um web scraper é uma sequência de procedimentos que são realizados afim de ser obter informações de páginas na web usando bots, conhecidos como scrapers. Essas informações posteriormente podem ser usadas para análise de dados.
 
 Segundo \cite{Glezscraping2013} um \textit{web scraping} ou raspagem de dado pode ser definido como o processo de extração e combinação de conteúdo de
 interesse da Web de maneira sistemática.
 
-Para \cite[p. 1]{ilprints376} em tradução livre um crawler "coleta automaticamente páginas da Web para criar um índice local e / ou local coleção de páginas da web.", ou seja, é um programa que coleta informação em paginas da internet, podendo criar índices e/ou armazenar esses dados bem como atualizá-los. 
+Para \cite[p. 1]{ilprints376} em tradução livre um crawler é "uma coleta automaticamente de páginas da Web para criar um índice local e/ou local de coleção de páginas da web.", ou seja, é um programa que coleta informação em páginas da internet, podendo criar índices e/ou armazenar esses dados bem como atualizá-los. 
 
-O processo de desenvolvimento do web scraping foi baseado no trabalho realizado por \citeauthor{assis2017meuhorario} no projeto do MeuHorário2\footnote{MeuHorário2. Disponível em <\url{www.meuhorarioufba.com.br/}>. Acesso em: 13 nov. 2019}. Inicialmente foram definidas tês etapas, utilizando o tipo informação que passa a ser o foco da extração: cursos, disciplinas e professores.  Em cada etapa, foi desenvolvida uma task conceito utilizado pela linguaguem de programação ruby \footnote{Ruby. Disponível em <\url{www.docs.ruby-lang.org/en/2.2.0/Rake/Task.html}>. Acesso em: 13 nov. 2019.}, que são tarefas, ou seja, instruções a serem executadas mesmo que a aplicação não esteja em execução. 
+O processo de desenvolvimento do web scraping que foi empregado nesta solução foi baseado no trabalho realizado por \citeauthor{assis2017meuhorario} no projeto do MeuHorário2\footnote{MeuHorário2. Disponível em <\url{www.meuhorarioufba.com.br/}>. Acesso em: 13 nov. 2019}. Inicialmente foram definidas tês etapas, utilizando o tipo informação que passa a ser o foco da extração: cursos, disciplinas e professores.  Em cada etapa, foi desenvolvida uma \textit{task} conceito utilizado pela linguaguem de programação ruby \footnote{Ruby. Disponível em <\url{www.docs.ruby-lang.org/en/2.2.0/Rake/Task.html}>. Acesso em: 13 nov. 2019.}, que são tarefas, ou seja, instruções a serem executadas mesmo que a aplicação não esteja em execução. 
 
-A primeira tarefa desenvolvida foi a extração de cursos de uma página de listagem dos cursos da UFBA. Foram extraídos os dados: nome e código do curso. Podemos visualizar na figura \ref{fig:lista_cursos}.
+A primeira tarefa desenvolvida foi a extração de cursos, através de uma página de listagem dos cursos da UFBA. Foram extraídos os dados: nome e código do curso. Podemos visualizar na figura \ref{fig:lista_cursos} como a informação é apresentada.
 
 \begin{figure}
 \centering
@@ -677,35 +687,102 @@ O SICAD utiliza dois dos tipos de moderações citados que são os de pós moder
 A moderação neste momento inicial será realizada por um usuário com papel Moderador associado a ele. Observa-se a pós moderação, quando o moderador pode visualizar todos os comentários realizado, e os que forem denunciados ou tiver seu conteúdo escrito de forma pejorativa, poderão de bloqueá-los. Quando bloqueado, o comentário automaticamente não ficará mais disponível para consulta dos demais. Também é papel do Moderador manter atualizada a lista de palavras restritivas utilizada pela rotina de inserção de comentários. 
 
 
-A moderação automatizada foi implementada pensando em não permitir que o usuário realize um comentário pejorativo auxiliando o moderador e mantendo um feed saudável com elogios e criticas construtivas. Utilizando a técnica stemmização, que segundo \cite{porter1980} em tradução livre “ stemmer é um processo para remover as palavras morfológicas e nas terminações flexionais mais comuns das palavras.”, quando o usuário escreve um comentário e nele possui alguma palavra que está contida numa lista de palavras restritivas previamente preenchida o comentário não é persistido no banco de dados.  
+A moderação automatizada foi implementada pensando em não permitir que o usuário realize um comentário pejorativo auxiliando o moderador e mantendo um feed saudável com elogios e criticas construtivas. Utilizando a técnica stemmização, que segundo \cite{porter1980} em tradução livre “stemmer é um processo para remover as palavras morfológicas e nas terminações flexionais mais comuns das palavras.”, quando o usuário escreve um comentário e nele possui alguma palavra que está contida numa lista de palavras restritivas previamente preenchida o comentário não é persistido no banco de dados.  
 
 Através dos pontos citado acima podemos entender a importância da utilização da moderação dentro das organizações e sistema pois é  mais uma camada que auxilia na segurança da informação no critério de integridade contribuindo para a sua consistência.
 
 \subsection{Configuração}
-O módulo de configuração foi implementado para que se pudesse realizar as configurações básicas para que o SICAD possa funcionar de acordo com a estrutura proposta. Nele o Administrador pode dar cadastrar e dar manutenção nas palavras chaves utilizadas pela avaliação, nas palavras restritivas utilizadas no módulo de comentários e informar o período em que a avaliação ficará disponível para utilização dos usuários.
+O módulo de configuração foi implementado para suprir a  informações críticas necessárias para o funcionamento da aplicação. Nele o Administrador pode dar cadastrar e dar manutenção nas palavras chaves utilizadas pela avaliação, nas palavras restritivas utilizadas no módulo de comentários e informar o período em que a avaliação ficará disponível para utilização dos usuários.
 
 \section{ Anonimato}
+%A constituição federal em vigor disposta em seu artigo 5º, inciso IV nos diz  que “é livre a manifestação do pensamento, sendo vedado o anonimato”, ou seja, pode ocorrer a manifestação de pensamento contudo que este esteja identificado.  
+%
+Segundo a definição de anônimo pertencente ao dicionário Houaiss, " 1. Que não tem o nome ou a assinatura do criador; 2. Que ou aquele que não revela seu nome" \cite[p. 7]{houasis2001} podemos perceber que em diversas situações cotidianas e principalmente em publicações na internet este conceito é bastante utilizado: a manifestação do pensamento não identificado.
 
-O que nos diz a constituição federal em vigor disposta em seu artigo 5º, IV que é “livre a manifestação do pensamento, sendo vedado o anonimato”, ou seja, pode ocorrer a manifestação de pensamento sendo que este seja identificado.  
+Na avaliações praticadas pela universidade, existe um momento em que o discente pode expressar sua opinião sobre o desempenho do docente em sala de aula de acordo com a disciplina avaliada. Todo processo é realizado de forma não identificada e o professor não possui acesso acerca quem realizou a avaliação. O conceito de anonimato se perde uma vez que para realizar qualquer operação o discente tenha que realizar um login, logo a partir desse ponto utilizaremos a não identificação para referir-se-á qualquer situação que arremeta ao conceito de anonimato.
 
-Já considerando a definição de anônimo pertencente ao dicionário Houaiss, "1. Que não tem o nome ou a assinatura do criador; 2. Que ou aquele que não revela seu nome" \cite[p. 7]{houasis2001} podemos perceber que em em diversas situações cotidianas e nas publicações na internet esta definição é mais levada em consideração o que facilita a prática de ilícitos na rede.
+Afim de realizar um estudo sobre o alcance e utilização da aplicação, assim como a definição de um ponto crucial que seria a implementação da avaliação nos mesmo moldes do SIAV, levando em consideração a não identificação do aluno, um questionário foi aplicado para obtenção de dados base acerca desse tópico. %melhorar aqui
 
-Como foi definido no subtópico \ref{subsec:moderacao} o SICAD trabalha com informação sensível nos conteúdos de seus comentários. Houve um conflito levantamento realizado por meio de formulário  
+Foi utilizado para coleta de informação o procedimento do tipo pesquisa de levantamento. O modelo escolhido foi do tipo Questionário, no qual foi desenvolvido utilizando a ferramenta do Google Forms pois foi a mais simples de chegar no público alvo desejado. O questionário completo aplicado encontra-se descrito no apêndice \ref{ape:apendice}.
 
+Consideremos as perguntas aplicadas \textit{"Se existisse uma aplicação onde fosse possível a inclusão de comentários sobre determinada disciplina dada por um professor em um determinado semestre, você utilizaria essa aplicação?"} como \textbf{Pergunta A} e \textit{ 
+"Se você fosse realizar um determinado comentário sobre uma disciplina nessa aplicação, você gostaria de se identificar?"} como \textbf{Pergunta B}, onde temos \textbf{sim} e \textbf{não} como alternativas de resposta e a resposta positiva do primeiro questionamento está relacionada com a possibilidade de resposta do segundo questionamento. O questionário foi aplicado num grupo da universidade criado na rede social Facebook e obteve-se setenta e duas respostas. Nas figuras \ref{fig:perguntaa} e \ref{fig:perguntab} respectivamente, observamos os percentuais atingidos.
+%exemplo grafico de pizza
+%\begin{center}
+%\begin{tikzpicture}
+%\pie{33.3/Não, 66.7/Sim}
+%\end{tikzpicture}
+%\end{center}
+%
+\pgfplotstableread{
+Answer Count
+Não 8.3
+Sim 91.7 
+}\results
+\pgfplotstableset{
+    create on use/Cumulated/.style={
+        create col/expr={
+            \pgfmathaccuma + \thisrow{Count}}
+}}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar, ymin=0,bar width=0.9cm,ymax=100,
+    ylabel={Pergunta A},
+    symbolic x coords={Sim,Não,undecided},
+    xtick=data
+    ]
+    \addplot [fill=green!80, nodes near coords] table {\results};
+
+  \end{axis}
+\end{tikzpicture}
+\caption{}
+\label{fig:perguntaa}
+\end{figure}
+
+
+\pgfplotstableread{
+Answer Count
+Não 66.7
+Sim 33.3 
+}\results
+\pgfplotstableset{
+    create on use/Cumulated/.style={
+        create col/expr={
+            \pgfmathaccuma + \thisrow{Count}}
+}}
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar, ymin=0,bar width=0.9cm,ymax=100,
+    ylabel={Pergunta B},
+    symbolic x coords={Sim,Não,undecided},
+    xtick=data
+    ]
+    \addplot [fill=blue!80, nodes near coords] table {\results};
+
+  \end{axis}
+\end{tikzpicture}
+\caption{}
+\label{fig:perguntab}
+\end{figure}
+
+Pelo levantamento fica claro que os 91,7 da população de estudantes estudada utilizaria o SICAD e que 66.7 gostariam de fazê-lo de forma não identificada. Esses dados foram levados em consideração e o sistema hoje realiza as avaliações e comentário não identificando seus autores.
 
 \section{ Segurança}
-
-
+Este subtópico foi reservado para descrever 
 
 %-------------Capítulo 4-----------------
 \chapter{Avaliação}
-\par descrever um pouco do processo de avaliação
+descrever um pouco do processo de avaliação
 \section{Objetivo da avaliação }
-\par  Colocar aqui o porquê dos formulário e beta tester
+ Colocar aqui o porquê dos formulário e beta tester
 \section{Forma de avaliação }
-\par descrever como onde e quando foi aplicado o formulario
+ descrever como onde e quando foi aplicado o formulário
 \section{Resultados } 
-\par apresentar os gráficos;
+ apresentar os gráficos;
 %-------------Capítulo 5-----------------
 \chapter{Considerações Finais}
 
@@ -722,6 +799,7 @@ Como foi definido no subtópico \ref{subsec:moderacao} o SICAD trabalha com info
 %-------------Apêndice------------------
 \appendix
 \chapter{Apêndice}
+\label{ape:apendice}
 
 \label{whatever}
 
