@@ -295,7 +295,7 @@ Para ser publicado, o usuário deve estar logado e classificar o curso e/ou prof
 \section{RateMyTeachers}
 
 O RateMyTeachers\footnote{RateMyTeachers. Disponível em <\url{www.ratemyteachers.com/}>. Acesso em: 17 nov. 2019.} assim como RateMyProfessor é um site de avaliação institucional porém seu publico alvo é a classificação de professores de ensino fundamental e médio e escolas. Os usuários podem classificar seus professores em uma escala de 1 a 5 nas categorias facilidade, utilidade, conhecimento e clareza ao passar o conhecimento, com os dois últimos considerando uma pontuação de "qualidade geral". É permitido realizar comentários sobre as experiências com os professores.
-
+'
 O site foi lançado em 2001 pela Mister Message e posteriormente vendido ao ex-proprietário Patrick Nagle. Atualmente o site atende instituições de ensino nos Estados Unidos, Reino Unido, Canadá, Irlanda, Austrália e Nova Zelândia .
 
 Um fato pertinente referente ao RateMyTeachers é que inicialmente o mesmo era moderado por uma comunidade pública de voluntários. Esta comunidade pública foi substituída em 2017 por uma comissão de moderação privada que se encarrega de revisar manualmente todas as classificações e professores adicionados ao site. Podemos observar na figura \ref{fig:ratemyteacher} o processo inicial de inserção de uma avaliação docente.
@@ -365,7 +365,7 @@ Para delimitar o acesso ao \ac{SICAD}, foi utilizado o módulo de \href{https://
 Dessa forma, o acesso a aplicação fica restrito a quem possui cadastro na universidade, não expondo assim quaisquer informações à usuários que não são elegíveis para utilizar o sistema.
 
 \subsection{Usuário e Segurança}
-
+\label{subsec:userseg}
 No processo de desenvolvimento da autenticação ficou claro a necessidade da implementação de uma camada de segurança, visto que a resposta à requisição feita juntamente a \ac{UFBA} retorna o username do usuário sem nenhum tipo proteção.
 
 A segurança da informação é essencial no sentido de preservar o valor que o username representa pois ele é chave para a maioria das funcionalidades do \ac{SICAD}. Focando neste ponto, foram implementadas ações para prover segurança nos processos executados pelo sistema descritos nos passos abaixo:
@@ -374,7 +374,7 @@ A segurança da informação é essencial no sentido de preservar o valor que o 
 \item Como ação inicial, o usuário irá logar na aplicação, consequentemente disparando uma requisição para a autenticação da \ac{UFBA};
 \item São executadas todas as rotinas de validação.
 Caso se obtenha uma resposta positiva, é retornado o username do usuário sem proteção para a aplicação que solicitou a requisição;
-\item O \ac{SICAD} antes de persistir a informação no banco de dados, utiliza a tecnologia de criptografia Hash SHA256\footnote{Hash SHA256. É um conjunto de funções hash criptográficas projetadas pela NSA. SHA significa secure hash algorithm.}, que será abordada com mais profundidade no tópico 3.6. para criptografar o username utilizado como informação chave na utilização do sistema. Para melhor fixação, o fluxo do processo está representado na figura \ref{fig:fluxograma_criptografia}.
+\item O \ac{SICAD} antes de persistir a informação no banco de dados, utiliza a tecnologia de criptografia Hash SHA256\footnote{Hash SHA256. É um conjunto de funções hash criptográficas projetadas pela NSA. SHA significa secure hash algorithm.}, que será abordada com mais profundidade no subtópico \ref{sec:seguranca}. para criptografar o username utilizado como informação chave na utilização do sistema. Para melhor fixação, o fluxo do processo está representado na figura \ref{fig:fluxograma_criptografia}.
 \end{itemize}
 
 \begin{figure}
@@ -682,9 +682,9 @@ De acordo com \cite{SMITH2019} existem quatro tipos de moderação:
 \item \textbf {Moderação automatizada: }A moderação automatizada funciona usando aplicativos específicos de moderação de conteúdo para filtrar certas palavras ofensivas e conteúdo multimídia. A detecção de postagens inapropriadas se torna automática e mais integrada. 
 \end{itemize}
 
-O SICAD utiliza dois dos tipos de moderações citados que são os de pós moderação e moderação automatizada. Devido ao seu conteúdo sensível os comentários são moderados quando necessário. Como dado pessoal sensível a lei Nº 13.709, de 14 de agosto de 2018 artigo 5º nos diz "Dado pessoal sensível é informação relativa a origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou organização, saúde, vida sexual ou dado genético ou biométrico.".  Contudo, o artigo 5º nos fornece um conceito de dado sensível muito engessado e entendo que a informação armazenada referente aos comentários que são registrados no sistema pode de algum jeito gerar constrangimento se exposta, foi desenvolvido um modulo de moderação dos comentários realizados pelos usuários.
+O SICAD utiliza dois dos tipos de moderações citados que são os de pós moderação e moderação automatizada. Devido ao seu conteúdo sensível os comentários são moderados quando necessário. Como dado pessoal sensível a lei Nº 13.709, de 14 de agosto de 2018 artigo 5º nos diz "Dado pessoal sensível é informação relativa a origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou organização, saúde, vida sexual ou dado genético ou biométrico.".  Contudo, o artigo 5º nos fornece um conceito de dado sensível muito engessado e entendendo que a informação armazenada referente aos comentários que são registrados no sistema pode de algum jeito gerar constrangimento se exposta, foi desenvolvido um módulo de moderação dos comentários realizados pelos usuários.
 
-A moderação neste momento inicial será realizada por um usuário com papel Moderador associado a ele. Observa-se a pós moderação, quando o moderador pode visualizar todos os comentários realizado, e os que forem denunciados ou tiver seu conteúdo escrito de forma pejorativa, poderão de bloqueá-los. Quando bloqueado, o comentário automaticamente não ficará mais disponível para consulta dos demais. Também é papel do Moderador manter atualizada a lista de palavras restritivas utilizada pela rotina de inserção de comentários. 
+A moderação neste momento inicial será realizada por um usuário com papel Moderador associado a ele. Observa-se a pós moderação, quando o moderador pode visualizar todos os comentários realizados, e os que forem denunciados ou tiver seu conteúdo escrito de forma pejorativa, poderão ser bloqueados. Quando está nesta situação, o comentário automaticamente não ficará mais disponível para consulta dos demais. Também é papel do Moderador manter atualizada a lista de palavras restritivas utilizada pela rotina de inserção de comentários. 
 
 
 A moderação automatizada foi implementada pensando em não permitir que o usuário realize um comentário pejorativo auxiliando o moderador e mantendo um feed saudável com elogios e criticas construtivas. Utilizando a técnica stemmização, que segundo \cite{porter1980} em tradução livre “stemmer é um processo para remover as palavras morfológicas e nas terminações flexionais mais comuns das palavras.”, quando o usuário escreve um comentário e nele possui alguma palavra que está contida numa lista de palavras restritivas previamente preenchida o comentário não é persistido no banco de dados.  
@@ -706,14 +706,16 @@ Afim de realizar um estudo sobre o alcance e utilização da aplicação, assim 
 Foi utilizado para coleta de informação o procedimento do tipo pesquisa de levantamento. O modelo escolhido foi do tipo Questionário, no qual foi desenvolvido utilizando a ferramenta do Google Forms pois foi a mais simples de chegar no público alvo desejado. O questionário completo aplicado encontra-se descrito no apêndice \ref{ape:apendice}.
 
 Consideremos as perguntas aplicadas \textit{"Se existisse uma aplicação onde fosse possível a inclusão de comentários sobre determinada disciplina dada por um professor em um determinado semestre, você utilizaria essa aplicação?"} como \textbf{Pergunta A} e \textit{ 
-"Se você fosse realizar um determinado comentário sobre uma disciplina nessa aplicação, você gostaria de se identificar?"} como \textbf{Pergunta B}, onde temos \textbf{sim} e \textbf{não} como alternativas de resposta e a resposta positiva do primeiro questionamento está relacionada com a possibilidade de resposta do segundo questionamento. O questionário foi aplicado num grupo da universidade criado na rede social Facebook e obteve-se setenta e duas respostas. Nas figuras \ref{fig:perguntaa} e \ref{fig:perguntab} respectivamente, observamos os percentuais atingidos.
-%exemplo grafico de pizza
+"Se você fosse realizar um determinado comentário sobre uma disciplina nessa aplicação, você gostaria de se identificar?"} como \textbf{Pergunta B}, onde temos \textbf{sim} e \textbf{não} como alternativas de resposta e a resposta positiva do primeiro questionamento está relacionada com a possibilidade de resposta do segundo questionamento. O questionário foi aplicado no grupo \textit{UFBA}, destinado a comunidade da universidade, criado na rede social Facebook\footnote{Facebook. Disponível em <\url{www.facebook.com/}>. Acesso em: 20 nov. 2019} e obteve-se setenta e duas respostas. Na figura \ref{fig:questionario}, observamos os percentuais atingidos.
+% pizza --ver com Rodrigo
 %\begin{center}
 %\begin{tikzpicture}
 %\pie{33.3/Não, 66.7/Sim}
 %\end{tikzpicture}
 %\end{center}
-%
+
+\begin{figure}[ht!]
+\centering
 \pgfplotstableread{
 Answer Count
 Não 8.3
@@ -724,8 +726,7 @@ Sim 91.7
         create col/expr={
             \pgfmathaccuma + \thisrow{Count}}
 }}
-\begin{figure}
-\centering
+\subfigure{
 \begin{tikzpicture}
   \begin{axis}[
     ybar, ymin=0,bar width=0.9cm,ymax=100,
@@ -734,14 +735,14 @@ Sim 91.7
     xtick=data
     ]
     \addplot [fill=green!80, nodes near coords] table {\results};
-
   \end{axis}
 \end{tikzpicture}
-\caption{}
-\label{fig:perguntaa}
-\end{figure}
+%\label{fig:perguntaa}
+%\end{figure}
+}
+\qquad
 
-
+%pergunta b
 \pgfplotstableread{
 Answer Count
 Não 66.7
@@ -752,8 +753,7 @@ Sim 33.3
         create col/expr={
             \pgfmathaccuma + \thisrow{Count}}
 }}
-\begin{figure}
-\centering
+\subfigure{
 \begin{tikzpicture}
   \begin{axis}[
     ybar, ymin=0,bar width=0.9cm,ymax=100,
@@ -762,30 +762,113 @@ Sim 33.3
     xtick=data
     ]
     \addplot [fill=blue!80, nodes near coords] table {\results};
-
   \end{axis}
 \end{tikzpicture}
-\caption{}
-\label{fig:perguntab}
+}
+\caption{Resultados do Questionário}
+\label{fig:questionario}
 \end{figure}
 
-Pelo levantamento fica claro que os 91,7 da população de estudantes estudada utilizaria o SICAD e que 66.7 gostariam de fazê-lo de forma não identificada. Esses dados foram levados em consideração e o sistema hoje realiza as avaliações e comentário não identificando seus autores.
+Pelos resultados do questionário visualizado na figura \ref{fig:questionario} fica claro que os 91,7\% da população de estudantes estudada utilizaria o SICAD e que 66,7\% gostariam de fazê-lo de forma não identificada. Esses dados foram levados em consideração no desenvolvimento deste trabalho e o sistema hoje realiza as avaliações e comentários não identificando seus autores.
 
 \section{ Segurança}
-Este subtópico foi reservado para descrever 
+\label{sec:seguranca}
 
+Em sua essência, criptografia é a prática de tornar ilegível um texto previamente legível e depois inverter tal operação, tornando possível proteger a mensagem, omitindo suas informações de entidades indesejadas. 
+
+Como descrito no subtópico \ref{subsec:userseg}, para dar segurança ao usuário foi utilizada a técnica de criptografia no username do usuário que nos é informado pela autenticação da UFBA sem segurança alguma. Foi aplicado o algoritmo Hash tipo SHA256 que será observado no subtópico \ref{subsec:hash}.
+
+%Hoje criptografia é fundamentada em quatro características
+%da segurança da informação:
+%i. Confidencialidade: Manter a informação secreta de todos, exceto
+%de quem é autorizado a vê-la.
+%ii. Integridade: Assegurar que a informação não foi alterada por
+%meios desconhecidos ou não autorizados.
+%iii. Autenticidade: Confirmação da identidade da entidade que realizou a assinatura da mensagem.
+%iv. Não repúdio: Confirmação de quem mandou a mensagem.
+
+%colocar referencias
+\subsection{Hash}
+\label{subsec:hash}
+De forma simplificada o hash é um algoritmo complexo que  transforma uma quantidade de informações em uma saída de comprimento fixo. O processo é feito através do uso de fórmulas matemáticas e é necessário de um computador pra fazê-lo.
+
+Basicamente pra se obter um hash é preciso uma string de entrada  que gerará uma sequência de letras e números aleatórios Conhecida como a impressão digital, toda vez que a string de entrada é modificada sua impressão digital também é alterada.
+
+Normalmente, os algoritmos de hashing  são projetados como funções de sentido único, o que significa que elas não podem ser facilmente revertidas sem empregar grandes quantidades de tempo e de recursos computacionais. Em outras palavras, é muito fácil criar o output a partir do input, mas relativamente difícil de ir na direção oposta (gerar o input a partir do output apenas). De um modo geral, quanto mais difícil for de encontrar o input, mais seguro será o algoritmo de hashing.
+
+Existem vários tipos diferentes de funções hash, contudo, para este trabalho vamos considerar a função SHA-2 sob a variação de 256 bits, conhecida como SHA256 que será explorada no subtópico \ref{subsec:sha256}.
+
+\subsection{SHA-256}
+\label{subsec:sha256}
+
+O Secure Hash Algorithm (SHA) foi desenvolvido em 1994 pelo National Institute of Standards and Technology (NIST) junto com National Security Agency (NSA), ambas agências mantidas pelo governo dos Estados Unidos,  para ser usado como padrão.
+
+A primeira versão SHA-0 foi publica em 1993, com uma impressão digital de 160 bits. Em 1995, foi publicada SHA-1 que é muito parecida com sua antecedente, alterando a especificação de dispersão do SHA-0 corrigindo possíveis fraquezas. SHA-2, foi publicada em 2001, é significantemente diferente da função de dispersão SHA-1, sua impressão digital pode ser dada em 224, 256, 384 ou 512 bits. Em 2012 o NIST selecionou um algoritmo adicional, o Keccak, para padronização sob o título de SHA-3.
+
+Diferentes funções hash produzirão outputs de tamanhos diferentes, mas os possíveis tamanhos de output para cada algoritmo de hashing são sempre constantes. Por exemplo, o algoritmo SHA-256 só pode produzir outputs de 256 bits, enquanto o SHA-1 irá sempre gerar um digest de 160 bits.
+
+%melhorar daqui pra baixo e 
+Exemplificando, vamos utilizar os seguintes usernames fictícios “maria” e “Maria”. Executando o algoritmo hash SHA-256 iremos obter os resultados descritos na tabela \ref{tab:sha256}.
+
+\begin{table}[ht!]
+\begin{tabular} { |p{1cm}|p{15.5cm}|  }
+ \hline
+ \multicolumn{2}{|c|}{SHA-256} \\
+ \hline
+Input & Output(256 bits) \\
+ \hline
+ maria & 94AEC9FBED989ECE189A7E172C9CF41669050495152BC4C1DBF2A38D7FD85627 \\
+ Maria&  9FF18EBE7449349F358E3AF0B57CF7A032C1C6B2272CB2656FF85EB112232F16  \\
+ \hline
+
+\end{tabular}
+ \caption{Demonstração do uso do SHA-256}
+\label{tab:sha256}
+\end{table}
+
+Note que uma pequena alteração (na primeira letra maiúscula) resultou em um valor de hash totalmente diferente. Mas como estamos usando o SHA-256, os outputs sempre terão um tamanho fixo de 256 bits (ou 64 caracteres) - independentemente do tamanho do input. Além disso, não importa quantas vezes executamos as duas palavras através do algoritmo, os dois outputs permanecerão constantes.
+
+Neste trabalho foi escolhido a variação de 256 bits da SHA-2 porque ela é considerada segura e nos retorna uma impressão digital com tamanho suficiente pra representar os usuários do sistema.
+
+%revisar todo este capitulo e colocar referencias
 %-------------Capítulo 4-----------------
 \chapter{Avaliação}
-descrever um pouco do processo de avaliação
+
+Um sistema informático pode apresentar problemas seja ele em um sua interface como na sua usabilidade, e isso pode gerar como consequência frustração por parte do utilizador a ponto do mesmo não voltar mais a utilizá-lo.
+
+É por isso que uma avaliação se faz necessário, onde um  avaliador faz um julgamento sobre a qualidade de uso da solução e identifica problemas na interação e na interface sendo assim  possível corrigir os problemas relacionados à usabilidade antes de inserir o sistema no dia-a-dia dos usuários.
+
 \section{Objetivo da avaliação }
- Colocar aqui o porquê dos formulário e beta tester
-\section{Forma de avaliação }
- descrever como onde e quando foi aplicado o formulário
-\section{Resultados } 
- apresentar os gráficos;
+Para garantir que uma avaliação obtenha sucesso é de extrema importância definir quais são os objetivos da avaliação. Esses objetivos determinam quais aspectos relacionados ao uso do sistema devem ser investigados.Neste trabalho vamos considerar os seguintes objetivos:
+\begin{itemize}
+ \item{\textbf{Avaliar a interface junto ao usuário:}} Deve-se avaliar a usabilidade da interface; o quão fácil é aprender a usar a interface.
+ \item{\textbf{Identificar problemas específicos:}} Identificar aspectos da interface, que quando usados no contexto alvo, causam resultados inesperados ou confusão entre os usuários.
+\end{itemize}
+
+\section{Forma de avaliação}
+
+Usabilidade é um termo usado para definir a facilidade com que as pessoas podem empregar uma ferramenta ou objeto a fim de realizar uma tarefa específica e importante. 
+
+Com base no conceito de percurso cognitivo que é uma análise de usabilidade criada  no início dos anos 90, pelas pesquisadoras Cathleen Wharton, John Rieman, Clayton Lewis e Peter Polson foi de com o objetivo de avaliar fluxos de navegação, o quão fácil é navegar por estes fluxos e o quão simples é aprender a usar uma interface.
+
+Para levantamento da informações foi selecionada uma amostra de dez usuários utilizando a técnica de Amostragem por Escolha e aplicado um formulário do tipo questionário, utilizando a ferramenta do Google Forms, onde se pede para responder o grau de satisfatibilidade em relação aos módulos de comentários e avaliações assim como foi disponibilizado um campo para responder se o usuário teve alguma dificuldade no entendimento dos módulos e um campo para sugestões de melhoria.
+
+\section{Resultados} 
+
+
 %-------------Capítulo 5-----------------
 \chapter{Considerações Finais}
 
+Este trabalho de conclusão de curso apresentou uma sugestão de solução alternativa ao método que atualmente é utilizado pela Universidade Federal da Bahia no seguimento de avaliação docente pelo discente.
+
+A falta de transparência em relação aos resultados do procedimento de avaliação que é realizado semestralmente pela universidade gerou uma inquietação por parte da comunidade discente acarretando a busca por ambientes extra oficiais e até mesmo a criação destes ambientes onde suas experiencias foram e são até este determinado momento compartilhadas.
+
+As limitações do sistema utilizado pela UFBA e falha no processo de divulgação dos resultados mostraram a necessidade do desenvolvimento de uma nova aplicação com objetivos similares ao sistema utilizado pela universidade porém que  utilizasse tecnologias contemporâneas e seguindo tendências atuais. 
+
+A partir desta necessidade surge então o Sistema Colaborativo de Avaliação Docente, uma aplicação web onde o aluno pode contribuir diretamente para a melhoria  da qualidade pedagógica e da qualidade de ensino dos professores, compartilhando suas experiências vividas em sala de aula em forma de sugestões ou críticas construtivas, realizar avaliações utilizando conceitos
+já conhecido pelo sistema avaliativo utilizado oficialmente pela universidade e . Este modelo é pensado para propiciar a máxima relevância e qualidade das avaliações postadas, pois possibilita uma descrição empírica da experiência acadêmica do aluno, bem como a geração de estatísticas que podem ser úteis tanto para a autoavaliação docente como para o discente  hora de decidir sua matrícula.
+
+Para trabalhos futuros, os objetos da avaliação docente poderão ser melhorados a fim de serem mais assertivos, processo que poderá envolver profissionais da área de Educação para um refinamento mais objetivo e menos generalista como é apresentado no atual instrumento avaliativo utilizado pela universidade assim como a implementação de uma autoavaliação do discente que é um exercício de reflexão fundamental para todas as pessoas. 
 %-------------Bibliografia------------------
 
 \renewcommand\bibname{Referências}
@@ -795,13 +878,13 @@ descrever um pouco do processo de avaliação
 \bibliography{referencias}
 \nocite{*}
 
-
 %-------------Apêndice------------------
 \appendix
 \chapter{Apêndice}
 \label{ape:apendice}
 
-\label{whatever}
+\includepdf[pages=-]{./formularios/SICAD.pdf}
 
+\includepdf[pages=-]{./formularios/Avaliacao.pdf}
 
 \end{document}
