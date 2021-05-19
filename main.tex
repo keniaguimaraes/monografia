@@ -77,7 +77,7 @@ Docente}}
 \vspace{4.95cm}
 
 \textbf{Salvador - Bahia} \\
-Dezembro de 2019
+Abril de 2020
 
 \end{center}
 \thispagestyle{empty}
@@ -109,7 +109,7 @@ Monografia apresentada como trabalho de conclusão de curso para o curso de Bach
 
 \begin{center}
 \textbf{Salvador - Bahia} \\
-Dezembro de 2019
+Abril de 2020
 \end{center}
 
 
@@ -128,11 +128,11 @@ Dezembro de 2019
 \begin{verbatim}
 Guimarães, Kênia Arruda
 Sistema Colaborativo de Avaliação Docente - UFBA. / Kênia
-Arruda Guimarães. - Salvador, 01, 2019.
+Arruda Guimarães. - Salvador, 04, 2020.
 60.:il.
 Orientador: Rodrigo Rocha Gomes e Souza.
 Monografia (Graduação) - UNIVERSIDADE FEDERAL DA BAHIA,
-INSTITUTO DE MATEMÁTICA, 07 de dezembro de 2019.
+INSTITUTO DE MATEMÁTICA, 30 de abril de 2020.
 TÓPICOS PARA FICHA CATALOGRÁFICA.
 I.  Souza, Rodrigo Rocha Gomes e. 
 II. UNIVERSIDADE FEDERAL DA BAHIA. INSTITUTO DE MATEMÁTICA.
@@ -205,7 +205,7 @@ Aos meus pais que sempre estiveram ao meu lado me apoiando em cada decisão toma
 
 À minha noiva Juliana Alves Pereira que vem sendo meu maior suporte incentivo neste ciclo de aprendizado. 
 
-Aos meus amigos e em especial à Lina Mendes que me deu grande auxílio no design da aplicação e ao Carlos Henrique e Ludmila Cruz que sempre tiveram muita paciência ao ouvir os desabafos quando ainda não tinha encontrado a solução para alguns dos obstáculos que encontrei durante a a execução deste projeto. 
+Aos meus amigos e em especial à Lina Mendes que me deu grande auxílio no design da aplicação, ao Carlos Henrique e Ludmila Cruz que sempre tiveram muita paciência ao ouvir os desabafos quando ainda não tinha encontrado a solução para alguns dos obstáculos que encontrei durante a a execução deste projeto e em memória a Erick Vian que sempre foi meu grande incentivador na conclusão deste curso e hoje sei que está torcendo por mim lá de cima.
 
 Ao meu orientador Rodrigo Rocha Gomes e Souza pela excelente orientação, paciência e atenção prestados no desenvolvimento deste trabalho e a Universidade Federal da Bahia (UFBA) pelo espaço público de ensino que mesmo com todas as dificuldades encontradas forma excelentes profissionais que vem contribuindo constantemente para o desenvolvimento do nosso país.  
 
@@ -229,9 +229,23 @@ Albert Einstein}
 \thispagestyle{empty}
  
 
+O Sistema Colaborativo de Avaliação Docente ou SICAD é um sistema web que tem por objetivo a avaliação dos docentes da Universidade Federal da Bahia de forma paralela com o instrumento avaliativo já utilizado por esta. Através do compartilhamento das experiências vividas em sala de aula pelos discentes assim como um processo de avaliação individual do docente é possível gerar resultados que podem servir de subsídio para tomadas de decisão no processo de matrícula por parte dos discente e pelos colegiados no que diz respeito à indicação de disciplinas aos docentes.
+
+A pratica da avaliação é indispensável nos sistemas de ensino. Atingir bons resultados traz bons frutos para todos: alunos, professores e principalmente a instituição de ensino.
+
+
+
+\textbf{Palavras-chave:} <Avaliação Docente>, <Instrumento Avaliativo>, <Web>, <SICAD>.
+ 
+
 %-------------Abstract------------------
 \newpage
 \chapter*{Abstract}
+The Collaborative Teacher Evaluation System or SICAD is a web system that aims to evaluate the teachers of the Federal University of Bahia in parallel with the evaluation instrument already used by it. Through the sharing of the experiences lived in the classroom by the students as well as a process of individual evaluation of the teacher, it is possible to generate results that can serve as a subsidy for decision making in the enrollment process by the students and the collegiate. indication of subjects as teachers.
+
+The practice of assessment is indispensable in education systems. Achieving good results bring good results for everyone: students, teachers and especially the educational institution.
+
+\textbf{Key-words:} <Teacher Evaluation>, <Evaluative Instrument>, <Web>, <SICAD>.
 
 \thispagestyle{empty}
 
@@ -269,16 +283,100 @@ Albert Einstein}
 %-------------Capítulo 1-----------------
 \chapter{Introdução}
 \section{Contexto}
+Nas instituições de ensino, o mais comum é os alunos serem analisados e receberem uma nota condizente com o conhecimento apresentado. No entanto, a avaliação docente também é fundamental. Por meio dela, é possível melhorar a qualidade do ensino e fazer até os alunos aprenderem mais.
+
+Os benefícios dessa prática são significativos. Tanto que muitas instituições já adotam esse modelo. O motivo é simples: verificar a capacidade do professor de impactar os alunos e sua aprendizagem. Afinal, mais importante que cumprir regras, dominar tecnologias e ser um pesquisador, o docente precisa ter competência.
+
+%terminar
+
+Os capítulos desta monografia estão organizados de tal maneira: o Capítulo 2 apresenta informações sobre o domínio acadêmico, , além de uma lista de trabalhos similares. No Capítulo 3 são apresentados os principais aspectos da aplicação desenvolvida, incluindo a sua arquitetura e o seu funcionamento. O Capítulo 4 traz uma avaliação da usabilidade da aplicação, as sugestões enviadas por usuários e uma análise de estatísticas de uso, comparando-as com a da aplicação original. Por fim, o Capítulo 5 apresenta uma recapitulação desta monografia, trabalhos futuros e as considerações finais.
+
 \section{Problema}
 \label{sec:problema}
 \section{Objetivos}
 \label{sec:obejtivos}
 %-------------Capítulo 2-----------------
+\chapter {Referencial Teórico}
+\section {Processos Relacionados a Avaliação Docente}
+\section {Stemming}
+ \emph{Stemming} é o processo de conflação\footnote{Termo conflação está empregado no lugar de \emph{conflation} em inglês por não haver uma boa tradução para o português. Entende-se por conflação onde dois ou mais termos são utilizados indistintamente para uma determinada finalidade, conforme Freund (1982).} 
+onde há diferentes formas de uma palavra em uma única representação.
+A palavra raiz, base ou forma raiz resultante do processo de reduzir as palavras flexionadas (ou, às vezes, derivadas) não precisa ser idêntico à raiz morfológica da palavra; geralmente é suficiente que as palavras relacionadas mapeiem o mesmo radical, mesmo que esse radical não seja, em si, uma raiz válida.
+Existem diversas técnicas para realizar o processo de stemming, como o uso de dicionários, variedade de sucessores e n-gramas. Contudo, a técnica mais comum e a remoção de afixos da palavra. Essa técnica retira prefixos e/ou sufixos das palavras através da aplicação sucessiva de um conjunto regras até chegar ao \emph{stem} resultante, ou seja, a raiz. Neste trabalho, os \emph{stemmers} usam a técnica de remoção de afixos para chegar a uma raiz que onde será comparado a uma base de dados contendo palavras de baixo calão.   
 
-\chapter {Trabalhos Relacionados}
+\section {Extração de Dados}
+Para captura das informações deste trabalho foram utilizadas algumas técnicas que serão descritas abaixo.
+
+\subsection{Web scraper}
+Para \cite{laender2002} um web scraper é uma sequência de procedimentos que são realizados afim de ser obter informações de páginas na web usando bots, conhecidos como scrapers. Essas informações posteriormente podem ser usadas para análise de dados.
+
+Segundo \cite{Glezscraping2013} um \textit{web scraping} ou raspagem de dado pode ser definido como o processo de extração e combinação de conteúdo de interesse da Web de maneira sistemática.
+
+\subsection{Crawler}
+Para \cite[p. 1]{ilprints376} em tradução livre um crawler é "uma coleta automaticamente de páginas da Web para criar um índice local e/ou local de coleção de páginas da web.", ou seja, é um programa que coleta informação em páginas da internet, podendo criar índices e/ou armazenar esses dados bem como atualizá-los. 
+
+
+\section{ Segurança}
+\label{sec:seguranca}
+Em sua essência, criptografia é a prática de tornar ilegível um texto previamente legível e depois inverter tal operação, tornando possível proteger a mensagem, omitindo suas informações de entidades indesejadas. 
+
+Como descrito no subtópico \ref{subsec:userseg}, para dar segurança ao usuário foi utilizada a técnica de criptografia no username do usuário que nos é informado pela autenticação da UFBA sem segurança alguma. Foi aplicado o algoritmo Hash tipo SHA256 que será observado no subtópico \ref{subsec:hash}.
+
+%Hoje criptografia é fundamentada em quatro características
+%da segurança da informação:
+%i. Confidencialidade: Manter a informação secreta de todos, exceto
+%de quem é autorizado a vê-la.
+%ii. Integridade: Assegurar que a informação não foi alterada por
+%meios desconhecidos ou não autorizados.
+%iii. Autenticidade: Confirmação da identidade da entidade que realizou a assinatura da mensagem.
+%iv. Não repúdio: Confirmação de quem mandou a mensagem.
+
+%colocar referencias
+\subsection{Hash}
+\label{subsec:hash}
+De forma simplificada o hash é um algoritmo complexo que  transforma uma quantidade de informações em uma saída de comprimento fixo. O processo é feito através do uso de fórmulas matemáticas e é necessário de um computador pra fazê-lo.
+
+Basicamente pra se obter um hash é preciso uma string de entrada  que gerará uma sequência de letras e números aleatórios Conhecida como a impressão digital, toda vez que a string de entrada é modificada sua impressão digital também é alterada.
+
+Normalmente, os algoritmos de hashing  são projetados como funções de sentido único, o que significa que elas não podem ser facilmente revertidas sem empregar grandes quantidades de tempo e de recursos computacionais. Em outras palavras, é muito fácil criar o output a partir do input, mas relativamente difícil de ir na direção oposta (gerar o input a partir do output apenas). De um modo geral, quanto mais difícil for de encontrar o input, mais seguro será o algoritmo de hashing.
+
+Existem vários tipos diferentes de funções hash, contudo, para este trabalho vamos considerar a função SHA-2 sob a variação de 256 bits, conhecida como SHA256 que será explorada no subtópico \ref{subsec:sha256}.
+
+\subsection{SHA-256}
+\label{subsec:sha256}
+
+O Secure Hash Algorithm (SHA) foi desenvolvido em 1994 pelo National Institute of Standards and Technology (NIST) junto com National Security Agency (NSA), ambas agências mantidas pelo governo dos Estados Unidos,  para ser usado como padrão.
+
+A primeira versão SHA-0 foi publica em 1993, com uma impressão digital de 160 bits. Em 1995, foi publicada SHA-1 que é muito parecida com sua antecedente, alterando a especificação de dispersão do SHA-0 corrigindo possíveis fraquezas. SHA-2, foi publicada em 2001, é significantemente diferente da função de dispersão SHA-1, sua impressão digital pode ser dada em 224, 256, 384 ou 512 bits. Em 2012 o NIST selecionou um algoritmo adicional, o Keccak, para padronização sob o título de SHA-3.
+
+Diferentes funções hash produzirão outputs de tamanhos diferentes, mas os possíveis tamanhos de output para cada algoritmo de hashing são sempre constantes. Por exemplo, o algoritmo SHA-256 só pode produzir outputs de 256 bits, enquanto o SHA-1 irá sempre gerar um digest de 160 bits.
+
+Exemplificando, vamos utilizar os seguintes usernames fictícios “maria” e “Maria”. Executando o algoritmo hash SHA-256 iremos obter os resultados descritos na tabela \ref{tab:sha256}.
+
+\begin{table}[ht!]
+\begin{tabular} { |p{1cm}|p{15.5cm}|  }
+ \hline
+ \multicolumn{2}{|c|}{SHA-256} \\
+ \hline
+Input & Output(256 bits) \\
+ \hline
+ maria & 94AEC9FBED989ECE189A7E172C9CF41669050495152BC4C1DBF2A38D7FD85627 \\
+ Maria&  9FF18EBE7449349F358E3AF0B57CF7A032C1C6B2272CB2656FF85EB112232F16  \\
+ \hline
+
+\end{tabular}
+ \caption{Demonstração do uso do SHA-256}
+\label{tab:sha256}
+\end{table}
+
+Note que uma pequena alteração (na primeira letra maiúscula) resultou em um valor de hash totalmente diferente. Mas como estamos usando o SHA-256, os outputs sempre terão um tamanho fixo de 256 bits (ou 64 caracteres) - independentemente do tamanho do input. Além disso, não importa quantas vezes executamos as duas palavras através do algoritmo, os dois outputs permanecerão constantes.
+
+Neste trabalho foi escolhido a variação de 256 bits da SHA-2 porque ela é considerada segura e nos retorna uma impressão digital com tamanho suficiente pra representar os usuários do sistema. 
+
+\section {Trabalhos Relacionados}
 Para desenvolvimento deste trabalho foi pesquisado e estudado projetos relacionados com a proposta inicial introduzida no capitulo anterior. Foram levantadas propostas fora do país e dentro do território brasileiro afim de subsidiar abordagens diferentes para a concepção da solução proposta.
 
-\section{RateMyProfessors}
+\subsection{RateMyProfessors}
 O RateMyProfessors \footnote{RateMyProfessors. Disponível em <\url{www.ratemyprofessors.com}>. Acesso em: 17 nov. 2019.} é um site de avaliação institucional, concebido em maio de 1999 por John Swapceinski. Inicialmente o site foi lançado como TeacherRatings e mais tarde, no ano de 2001, passou a se chamar RateMyProfessors. O sistema permite que os discente de universidades atribuam classificações a docentes de instituições americanas, canadenses e do Reino Unido.
 
 A plataforma é tem como foco a avaliação de professores utilizando conceitos como nível de dificuldade, atribuições de palavra de tags(palavras chaves) como por exemplo "respeitoso", "faz muitos artigos", "atividades para casa" e etc bem como um comentário de até 350 caracteres no máximo ao final de cada avaliação. É possível cadastrar professores caso eles não estejam na base de dados e os comentários e avaliações são anônimos.
@@ -292,7 +390,7 @@ Para ser publicado, o usuário deve estar logado e classificar o curso e/ou prof
 \label{fig:ratemyprofessor}
 \end{figure}
 
-\section{RateMyTeachers}
+\subsection{RateMyTeachers}
 
 O RateMyTeachers\footnote{RateMyTeachers. Disponível em <\url{www.ratemyteachers.com/}>. Acesso em: 17 nov. 2019.} assim como RateMyProfessor é um site de avaliação institucional porém seu publico alvo é a classificação de professores de ensino fundamental e médio e escolas. Os usuários podem classificar seus professores em uma escala de 1 a 5 nas categorias facilidade, utilidade, conhecimento e clareza ao passar o conhecimento, com os dois últimos considerando uma pontuação de "qualidade geral". É permitido realizar comentários sobre as experiências com os professores.
 '
@@ -307,26 +405,25 @@ Um fato pertinente referente ao RateMyTeachers é que inicialmente o mesmo era m
 \label{fig:ratemyteacher}
 \end{figure}
 
-\section{Avaliação Docente nas Instituições de Ensino Superior}
+\subsection{Avaliação Docente nas Instituições de Ensino Superior}
 
  A Lei Federal nº 10.861, de 14 de abril de 2004, instituiu o Sistema Nacional de Avaliação da Educação Superior (SINAES), prevendo que toda instituição de ensino superior(IES), pública ou privada, deverá constituir uma Comissão Própria de Avaliação (CPA), que será responsável pela autoavaliação da instituição. O SINAES avalia aspectos que giram em torno de alguns eixos principais definidos. São eles o ensino, a responsabilidade social, a pesquisa, a extensão, a gestão da instituição, o desempenho dos alunos, as instalações e o corpo docente.
  
  Toda instituição deverá realizar o levantamento de informações referente a avaliação institucional. Cada IES forma sua CPA e nela define os instrumentos de coleta de dados tais como formulários, pesquisas online, sistemas de informações gerais(SIG) e etc. No que tange a UFBA essas informações são levantadas através de sistemas de informações como o Sistema de Avaliação Docente pelo Discente, o SIAV para os cursos de graduação e o Sistema Integrado de Gestão de Atividades Acadêmicas, SIGAA para os cursos de pós graduação onde é envolvida a comunidade acadêmica(docentes, discentes e coordenadores).
  
- \subsection{Universidade Federal da Bahia}
+ \subsubsection{Universidade Federal da Bahia}
  O atual instrumento avaliativo apresenta-se na forma de um formulário online que possui questões fechadas com múltiplas opções. Os discentes ao respondê-lo avaliam diferentes aspectos que se referem ao comprometimento do professor e aluno e componentes curriculares cursados no semestre anterior.
  
  Este processo de avaliativo é realizado ao final de cada semestre e é pré-requisito para liberação da matricula web, ou seja, é obrigatório para discentes a partir do 2º semestre na universidade.
  
-\subsection{Universidade de Brasília}
- Chamado de Avaliação Discente \footnote{Avaliação Discente. Disponível em <\url{www.cpa.unb.br}>. Acesso em: 18 nov. 2019.} o processo realizado pela Universidade de Brasília (UNB) é realizada no início de todo semestre através da plataforma de matrícula online (MatriculaWeb)\footnote{MatriculaWeb. Disponível em <\url{www.matriculaweb.unb.br}>. Acesso em: 18 nov. 2019.}. O discente avalia as disciplinas do período anterior a partir de sua percepção, o desempenho do professor, sua autoavaliação e o apoio institucional à disciplina. Este instrumento não é pré-requisito para a conclusão da matricula semestral.
+\subsubsection{Universidade de Brasília}
+Chamado de Avaliação Discente \footnote{Avaliação Discente. Disponível em <\url{www.cpa.unb.br}>. Acesso em: 18 nov. 2019.} o processo realizado pela Universidade de Brasília (UNB) é realizada no início de todo semestre através da plataforma de matrícula online (MatriculaWeb)\footnote{MatriculaWeb. Disponível em <\url{www.matriculaweb.unb.br}>. Acesso em: 18 nov. 2019.}. O discente avalia as disciplinas do período anterior a partir de sua percepção, o desempenho do professor, sua autoavaliação e o apoio institucional à disciplina. Este instrumento não é pré-requisito para a conclusão da matricula semestral.
  
-
-\subsection{Universidade Federal de São Paulo}
+\subsubsection{Universidade de São Paulo}
 
 Realizado ao final de cada semestre letivo, o processo de Avaliação Docente Semestral permite a participação dos discentes nos instrumentos avaliativos de cada unidade, sendo dessa forma muito importante para o aprimoramento do ensino na universidade.
 
-Em novembro de 2016 foi aprovado pela Universidade Federal de São Paulo(USP) um novo regimento que visa compactar os vários sistemas de avaliação da USP, dando nova organização e diretrizes ao órgão responsável por conduzi-los, a CPA.
+Em novembro de 2016 foi aprovado pela Universidade de São Paulo (USP) um novo regimento que visa compactar os vários sistemas de avaliação da USP, dando nova organização e diretrizes ao órgão responsável por conduzi-los, a CPA.
 
 Foi definida uma Comissão de Atividades Docentes (CAD) onde cabe à ela propor calendário de avaliação dos professores e novos pontos a serem discutido no âmbito da avaliação, ocorrendo a cada cinco anos. Os resultados obtidos permitem aos professores avançar na carreira.
 
@@ -491,6 +588,86 @@ Além dos papéis e permissões citados acima, o \ac{SICAD} conta com módulos, 
 
 O modelo RBAC além de impedir que um usuário possua papéis conflitantes com ele é possível impor restrições aos papéis, resultando em mais proteção e boa gestão da informação oferecida pelo sistema.
 
+
+
+\section{ Anonimato}
+%A constituição federal em vigor disposta em seu artigo 5º, inciso IV nos diz  que “é livre a manifestação do pensamento, sendo vedado o anonimato”, ou seja, pode ocorrer a manifestação de pensamento contudo que este esteja identificado.  
+%
+Segundo a definição de anônimo pertencente ao dicionário Houaiss, " 1. Que não tem o nome ou a assinatura do criador; 2. Que ou aquele que não revela seu nome" \cite[p. 7]{houasis2001} podemos perceber que em diversas situações cotidianas e principalmente em publicações na internet este conceito é bastante utilizado: a manifestação do pensamento não identificado.
+
+Na avaliações praticadas pela universidade, existe um momento em que o discente pode expressar sua opinião sobre o desempenho do docente em sala de aula de acordo com a disciplina avaliada. Todo processo é realizado de forma não identificada e o professor não possui acesso acerca quem realizou a avaliação. O conceito de anonimato se perde uma vez que para realizar qualquer operação o discente tenha que realizar um login, logo a partir desse ponto utilizaremos a não identificação para referir-se-á qualquer situação que arremeta ao conceito de anonimato.
+
+Afim de realizar um estudo sobre o alcance e utilização da aplicação, assim como a definição de um ponto crucial que seria a implementação da avaliação nos mesmo moldes do SIAV, levando em consideração a não identificação do aluno, um questionário foi aplicado para obtenção de dados base acerca desse tópico. %melhorar aqui
+
+Foi utilizado para coleta de informação o procedimento do tipo pesquisa de levantamento. O modelo escolhido foi do tipo Questionário, no qual foi desenvolvido utilizando a ferramenta do Google Forms pois foi a mais simples de chegar no público alvo desejado. O questionário completo aplicado encontra-se descrito no apêndice \ref{ape:apendice}.
+
+Consideremos as perguntas aplicadas \textit{"Se existisse uma aplicação onde fosse possível a inclusão de comentários sobre determinada disciplina dada por um professor em um determinado semestre, você utilizaria essa aplicação?"} como \textbf{Pergunta A} e \textit{ 
+"Se você fosse realizar um determinado comentário sobre uma disciplina nessa aplicação, você gostaria de se identificar?"} como \textbf{Pergunta B}, onde temos \textbf{sim} e \textbf{não} como alternativas de resposta e se o resultado do primeiro  questionamento for positivo estará relacionado com a possibilidade de resposta do segundo questionamento. O questionário foi aplicado entre agosto e setembro do ano de 2019 em um grupo destinado à comunidade da universidade, criado na rede social Facebook\footnote{Facebook. Disponível em <\url{www.facebook.com/}>. Acesso em: 20 nov. 2019} chamado \textit{UFBA},e obteve-se setenta e duas respostas. Na figura \ref{fig:questionario}, observamos os percentuais atingidos.
+% pizza --ver com Rodrigo
+% \begin{center}
+% \begin{tikzpicture}
+% \pie{33.3/Não, 66.7/Sim}
+% \end{tikzpicture}
+% \end{center}
+
+\begin{figure}[ht!]
+\centering
+\pgfplotstableread{
+Answer Count
+Não 8.3
+Sim 91.7 
+}\results
+\pgfplotstableset{
+    create on use/Cumulated/.style={
+        create col/expr={
+            \pgfmathaccuma + \thisrow{Count}}
+}}
+\subfigure{
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar, ymin=0,bar width=0.9cm,ymax=100,
+    ylabel={Pergunta A},
+    symbolic x coords={Sim,Não,undecided},
+    xtick=data
+    ]
+    \addplot [fill=green!80, nodes near coords] table {\results};
+  \end{axis}
+\end{tikzpicture}
+%\label{fig:perguntaa}
+%\end{figure}
+}
+\qquad
+
+%pergunta b
+\pgfplotstableread{
+Answer Count
+Não 66.7
+Sim 33.3 
+}\results
+\pgfplotstableset{
+    create on use/Cumulated/.style={
+        create col/expr={
+            \pgfmathaccuma + \thisrow{Count}}
+}}
+\subfigure{
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar, ymin=0,bar width=0.9cm,ymax=100,
+    ylabel={Pergunta B},
+    symbolic x coords={Sim,Não,undecided},
+    xtick=data
+    ]
+    \addplot [fill=blue!80, nodes near coords] table {\results};
+  \end{axis}
+\end{tikzpicture}
+}
+\caption{Resultados do Questionário}
+\label{fig:questionario}
+\end{figure}
+
+Pelos resultados do questionário visualizado na figura \ref{fig:questionario} fica claro que os 91,7\% da população de estudantes estudada utilizaria o SICAD e que 66,7\% gostariam de fazê-lo de forma não identificada. Esses dados foram levados em consideração no desenvolvimento deste trabalho e o sistema hoje realiza as avaliações e comentários não identificando seus autores.
+
+
 \section{ Principais Funcionalidades}
 
 Como descrito no inicio do capítulo \ref{chap:solucaoproposta}, esta solução foi pensada como uma união da funcionalidade de avaliar os docentes da UFBA com uma nova funcionalidade de realizar comentários.
@@ -501,10 +678,10 @@ As \textit{avaliações} são um parecer que um discente fornece referente a um 
 
 Contabilizando as avaliações realizadas pelos estudantes é oferecido pelo \ac{SICAD} os \textit{resultados}, onde são apresentadas de forma simples e transparente a contabilização dos itens avaliados.
 
-O utilizador do sistema possui também do recurso de \textit{ajuda} onde poderá tirar possíveis dúvidas a respeito do que são comentários, avaliações e resultados a qualquer momento. Podemos observar na figura \ref{fig:home_administrador} a tela incial do sistema.
+O utilizador do sistema possui também do recurso de \textit{ajuda} onde poderá tirar possíveis dúvidas a respeito do que são comentários, avaliações e resultados a qualquer momento. Podemos observar na figura \ref{fig:home_administrador} a tela inicial do sistema.
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{home_administrador.png}
+\includegraphics[scale=0.5]{home_administrador2.png}
 \caption{Tela Inicial do SICAD.}
 \label{fig:home_administrador}
 \end{figure}
@@ -538,16 +715,16 @@ O módulo de comentário possui as seguintes ações:
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{incluir_comentario.png}
+\includegraphics[scale=0.59]{incluir_comentario2.png}
 \caption{Tela de Inclusão de Comentário.}
 \label{fig:incluir_comentario}
 \end{figure}
 
-\item \textbf{Visualizar}: Esta funcionalidade permite ao usuário consultar tanto os seus próprios comentários realizados como os que foram incluídos por outros usuários. Podemos visualizar nas figuras \ref{fig:comentarios} e\ref{fig:visualizacao_meu_comentario} respectivamente; 
+\item \textbf{Visualizar}: Esta funcionalidade permite ao usuário consultar tanto os seus próprios comentários realizados como os que foram incluídos por outros usuários. Podemos visualizar nas figuras \ref{fig:comentarios} e \ref{fig:visualizacao_meu_comentario} respectivamente.
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{comentarios.png}
+\includegraphics[scale=0.5]{comentarios2.png}
 \caption{Tela de Visualização de Todos os Comentários.}
 \label{fig:comentarios}
 \end{figure}
@@ -640,14 +817,6 @@ Pensando na experiência do utilizador e para proporcionar uma ferramenta de res
 \subsection{Carga}
 As informações sobre os cursos, disciplinas e professores que são utilizados pelo SICAD, são disponibilizadas para o público no site da Superintendência de Administração Acadêmica (SUPAC) \footnote{SUPAC. Disponível em <\url{www.supac.ufba.br}>. Acesso em: 13 nov. 2019} na forma de um documento HTML\footnote{HTML. É  uma linguagem de marcação utilizada na construção de páginas na Web.}.
 
-
-Na captura dos dados citados acima foi utilizado um processo conhecido como  \textit{web scraper}. Para \cite{laender2002} um web scraper é uma sequência de procedimentos que são realizados afim de ser obter informações de páginas na web usando bots, conhecidos como scrapers. Essas informações posteriormente podem ser usadas para análise de dados.
-
-Segundo \cite{Glezscraping2013} um \textit{web scraping} ou raspagem de dado pode ser definido como o processo de extração e combinação de conteúdo de
-interesse da Web de maneira sistemática.
-
-Para \cite[p. 1]{ilprints376} em tradução livre um crawler é "uma coleta automaticamente de páginas da Web para criar um índice local e/ou local de coleção de páginas da web.", ou seja, é um programa que coleta informação em páginas da internet, podendo criar índices e/ou armazenar esses dados bem como atualizá-los. 
-
 O processo de desenvolvimento do web scraping que foi empregado nesta solução foi baseado no trabalho realizado por \citeauthor{assis2017meuhorario} no projeto do MeuHorário2\footnote{MeuHorário2. Disponível em <\url{www.meuhorarioufba.com.br/}>. Acesso em: 13 nov. 2019}. Inicialmente foram definidas tês etapas, utilizando o tipo informação que passa a ser o foco da extração: cursos, disciplinas e professores.  Em cada etapa, foi desenvolvida uma \textit{task} conceito utilizado pela linguaguem de programação ruby \footnote{Ruby. Disponível em <\url{www.docs.ruby-lang.org/en/2.2.0/Rake/Task.html}>. Acesso em: 13 nov. 2019.}, que são tarefas, ou seja, instruções a serem executadas mesmo que a aplicação não esteja em execução. 
 
 A primeira tarefa desenvolvida foi a extração de cursos, através de uma página de listagem dos cursos da UFBA. Foram extraídos os dados: nome e código do curso. Podemos visualizar na figura \ref{fig:lista_cursos} como a informação é apresentada.
@@ -694,153 +863,18 @@ Através dos pontos citado acima podemos entender a importância da utilização
 \subsection{Configuração}
 O módulo de configuração foi implementado para suprir a  informações críticas necessárias para o funcionamento da aplicação. Nele o Administrador pode dar cadastrar e dar manutenção nas palavras chaves utilizadas pela avaliação, nas palavras restritivas utilizadas no módulo de comentários e informar o período em que a avaliação ficará disponível para utilização dos usuários.
 
-\section{ Anonimato}
-%A constituição federal em vigor disposta em seu artigo 5º, inciso IV nos diz  que “é livre a manifestação do pensamento, sendo vedado o anonimato”, ou seja, pode ocorrer a manifestação de pensamento contudo que este esteja identificado.  
-%
-Segundo a definição de anônimo pertencente ao dicionário Houaiss, " 1. Que não tem o nome ou a assinatura do criador; 2. Que ou aquele que não revela seu nome" \cite[p. 7]{houasis2001} podemos perceber que em diversas situações cotidianas e principalmente em publicações na internet este conceito é bastante utilizado: a manifestação do pensamento não identificado.
-
-Na avaliações praticadas pela universidade, existe um momento em que o discente pode expressar sua opinião sobre o desempenho do docente em sala de aula de acordo com a disciplina avaliada. Todo processo é realizado de forma não identificada e o professor não possui acesso acerca quem realizou a avaliação. O conceito de anonimato se perde uma vez que para realizar qualquer operação o discente tenha que realizar um login, logo a partir desse ponto utilizaremos a não identificação para referir-se-á qualquer situação que arremeta ao conceito de anonimato.
-
-Afim de realizar um estudo sobre o alcance e utilização da aplicação, assim como a definição de um ponto crucial que seria a implementação da avaliação nos mesmo moldes do SIAV, levando em consideração a não identificação do aluno, um questionário foi aplicado para obtenção de dados base acerca desse tópico. %melhorar aqui
-
-Foi utilizado para coleta de informação o procedimento do tipo pesquisa de levantamento. O modelo escolhido foi do tipo Questionário, no qual foi desenvolvido utilizando a ferramenta do Google Forms pois foi a mais simples de chegar no público alvo desejado. O questionário completo aplicado encontra-se descrito no apêndice \ref{ape:apendice}.
-
-Consideremos as perguntas aplicadas \textit{"Se existisse uma aplicação onde fosse possível a inclusão de comentários sobre determinada disciplina dada por um professor em um determinado semestre, você utilizaria essa aplicação?"} como \textbf{Pergunta A} e \textit{ 
-"Se você fosse realizar um determinado comentário sobre uma disciplina nessa aplicação, você gostaria de se identificar?"} como \textbf{Pergunta B}, onde temos \textbf{sim} e \textbf{não} como alternativas de resposta e a resposta positiva do primeiro questionamento está relacionada com a possibilidade de resposta do segundo questionamento. O questionário foi aplicado no grupo \textit{UFBA}, destinado a comunidade da universidade, criado na rede social Facebook\footnote{Facebook. Disponível em <\url{www.facebook.com/}>. Acesso em: 20 nov. 2019} e obteve-se setenta e duas respostas. Na figura \ref{fig:questionario}, observamos os percentuais atingidos.
-% pizza --ver com Rodrigo
-%\begin{center}
-%\begin{tikzpicture}
-%\pie{33.3/Não, 66.7/Sim}
-%\end{tikzpicture}
-%\end{center}
-
-\begin{figure}[ht!]
-\centering
-\pgfplotstableread{
-Answer Count
-Não 8.3
-Sim 91.7 
-}\results
-\pgfplotstableset{
-    create on use/Cumulated/.style={
-        create col/expr={
-            \pgfmathaccuma + \thisrow{Count}}
-}}
-\subfigure{
-\begin{tikzpicture}
-  \begin{axis}[
-    ybar, ymin=0,bar width=0.9cm,ymax=100,
-    ylabel={Pergunta A},
-    symbolic x coords={Sim,Não,undecided},
-    xtick=data
-    ]
-    \addplot [fill=green!80, nodes near coords] table {\results};
-  \end{axis}
-\end{tikzpicture}
-%\label{fig:perguntaa}
-%\end{figure}
-}
-\qquad
-
-%pergunta b
-\pgfplotstableread{
-Answer Count
-Não 66.7
-Sim 33.3 
-}\results
-\pgfplotstableset{
-    create on use/Cumulated/.style={
-        create col/expr={
-            \pgfmathaccuma + \thisrow{Count}}
-}}
-\subfigure{
-\begin{tikzpicture}
-  \begin{axis}[
-    ybar, ymin=0,bar width=0.9cm,ymax=100,
-    ylabel={Pergunta B},
-    symbolic x coords={Sim,Não,undecided},
-    xtick=data
-    ]
-    \addplot [fill=blue!80, nodes near coords] table {\results};
-  \end{axis}
-\end{tikzpicture}
-}
-\caption{Resultados do Questionário}
-\label{fig:questionario}
-\end{figure}
-
-Pelos resultados do questionário visualizado na figura \ref{fig:questionario} fica claro que os 91,7\% da população de estudantes estudada utilizaria o SICAD e que 66,7\% gostariam de fazê-lo de forma não identificada. Esses dados foram levados em consideração no desenvolvimento deste trabalho e o sistema hoje realiza as avaliações e comentários não identificando seus autores.
-
-\section{ Segurança}
-\label{sec:seguranca}
-
-Em sua essência, criptografia é a prática de tornar ilegível um texto previamente legível e depois inverter tal operação, tornando possível proteger a mensagem, omitindo suas informações de entidades indesejadas. 
-
-Como descrito no subtópico \ref{subsec:userseg}, para dar segurança ao usuário foi utilizada a técnica de criptografia no username do usuário que nos é informado pela autenticação da UFBA sem segurança alguma. Foi aplicado o algoritmo Hash tipo SHA256 que será observado no subtópico \ref{subsec:hash}.
-
-%Hoje criptografia é fundamentada em quatro características
-%da segurança da informação:
-%i. Confidencialidade: Manter a informação secreta de todos, exceto
-%de quem é autorizado a vê-la.
-%ii. Integridade: Assegurar que a informação não foi alterada por
-%meios desconhecidos ou não autorizados.
-%iii. Autenticidade: Confirmação da identidade da entidade que realizou a assinatura da mensagem.
-%iv. Não repúdio: Confirmação de quem mandou a mensagem.
-
-%colocar referencias
-\subsection{Hash}
-\label{subsec:hash}
-De forma simplificada o hash é um algoritmo complexo que  transforma uma quantidade de informações em uma saída de comprimento fixo. O processo é feito através do uso de fórmulas matemáticas e é necessário de um computador pra fazê-lo.
-
-Basicamente pra se obter um hash é preciso uma string de entrada  que gerará uma sequência de letras e números aleatórios Conhecida como a impressão digital, toda vez que a string de entrada é modificada sua impressão digital também é alterada.
-
-Normalmente, os algoritmos de hashing  são projetados como funções de sentido único, o que significa que elas não podem ser facilmente revertidas sem empregar grandes quantidades de tempo e de recursos computacionais. Em outras palavras, é muito fácil criar o output a partir do input, mas relativamente difícil de ir na direção oposta (gerar o input a partir do output apenas). De um modo geral, quanto mais difícil for de encontrar o input, mais seguro será o algoritmo de hashing.
-
-Existem vários tipos diferentes de funções hash, contudo, para este trabalho vamos considerar a função SHA-2 sob a variação de 256 bits, conhecida como SHA256 que será explorada no subtópico \ref{subsec:sha256}.
-
-\subsection{SHA-256}
-\label{subsec:sha256}
-
-O Secure Hash Algorithm (SHA) foi desenvolvido em 1994 pelo National Institute of Standards and Technology (NIST) junto com National Security Agency (NSA), ambas agências mantidas pelo governo dos Estados Unidos,  para ser usado como padrão.
-
-A primeira versão SHA-0 foi publica em 1993, com uma impressão digital de 160 bits. Em 1995, foi publicada SHA-1 que é muito parecida com sua antecedente, alterando a especificação de dispersão do SHA-0 corrigindo possíveis fraquezas. SHA-2, foi publicada em 2001, é significantemente diferente da função de dispersão SHA-1, sua impressão digital pode ser dada em 224, 256, 384 ou 512 bits. Em 2012 o NIST selecionou um algoritmo adicional, o Keccak, para padronização sob o título de SHA-3.
-
-Diferentes funções hash produzirão outputs de tamanhos diferentes, mas os possíveis tamanhos de output para cada algoritmo de hashing são sempre constantes. Por exemplo, o algoritmo SHA-256 só pode produzir outputs de 256 bits, enquanto o SHA-1 irá sempre gerar um digest de 160 bits.
-
-%melhorar daqui pra baixo e 
-Exemplificando, vamos utilizar os seguintes usernames fictícios “maria” e “Maria”. Executando o algoritmo hash SHA-256 iremos obter os resultados descritos na tabela \ref{tab:sha256}.
-
-\begin{table}[ht!]
-\begin{tabular} { |p{1cm}|p{15.5cm}|  }
- \hline
- \multicolumn{2}{|c|}{SHA-256} \\
- \hline
-Input & Output(256 bits) \\
- \hline
- maria & 94AEC9FBED989ECE189A7E172C9CF41669050495152BC4C1DBF2A38D7FD85627 \\
- Maria&  9FF18EBE7449349F358E3AF0B57CF7A032C1C6B2272CB2656FF85EB112232F16  \\
- \hline
-
-\end{tabular}
- \caption{Demonstração do uso do SHA-256}
-\label{tab:sha256}
-\end{table}
-
-Note que uma pequena alteração (na primeira letra maiúscula) resultou em um valor de hash totalmente diferente. Mas como estamos usando o SHA-256, os outputs sempre terão um tamanho fixo de 256 bits (ou 64 caracteres) - independentemente do tamanho do input. Além disso, não importa quantas vezes executamos as duas palavras através do algoritmo, os dois outputs permanecerão constantes.
-
-Neste trabalho foi escolhido a variação de 256 bits da SHA-2 porque ela é considerada segura e nos retorna uma impressão digital com tamanho suficiente pra representar os usuários do sistema.
-
 %revisar todo este capitulo e colocar referencias
 %-------------Capítulo 4-----------------
 \chapter{Avaliação}
 
 Um sistema informático pode apresentar problemas seja ele em um sua interface como na sua usabilidade, e isso pode gerar como consequência frustração por parte do utilizador a ponto do mesmo não voltar mais a utilizá-lo.
 
-É por isso que uma avaliação se faz necessário, onde um  avaliador faz um julgamento sobre a qualidade de uso da solução e identifica problemas na interação e na interface sendo assim  possível corrigir os problemas relacionados à usabilidade antes de inserir o sistema no dia-a-dia dos usuários.
+É por isso que uma avaliação se faz necessário, onde um  avaliador faz um julgamento sobre a qualidade de uso da solução e identifica problemas na interação e na interface sendo assim possível corrigir os problemas relacionados à usabilidade antes de inserir o sistema no dia-a-dia dos usuários.
 
 \section{Objetivo da avaliação }
-Para garantir que uma avaliação obtenha sucesso é de extrema importância definir quais são os objetivos da avaliação. Esses objetivos determinam quais aspectos relacionados ao uso do sistema devem ser investigados.Neste trabalho vamos considerar os seguintes objetivos:
+Para garantir que uma avaliação obtenha sucesso é de extrema importância definir quais são os objetivos da avaliação. Esses objetivos determinam quais aspectos relacionados ao uso do sistema devem ser investigados. Neste trabalho vamos considerar os seguintes objetivos:
 \begin{itemize}
+ 
  \item{\textbf{Avaliar a interface junto ao usuário:}} Deve-se avaliar a usabilidade da interface; o quão fácil é aprender a usar a interface.
  \item{\textbf{Identificar problemas específicos:}} Identificar aspectos da interface, que quando usados no contexto alvo, causam resultados inesperados ou confusão entre os usuários.
 \end{itemize}
@@ -849,12 +883,63 @@ Para garantir que uma avaliação obtenha sucesso é de extrema importância def
 
 Usabilidade é um termo usado para definir a facilidade com que as pessoas podem empregar uma ferramenta ou objeto a fim de realizar uma tarefa específica e importante. 
 
-Com base no conceito de percurso cognitivo que é uma análise de usabilidade criada  no início dos anos 90, pelas pesquisadoras Cathleen Wharton, John Rieman, Clayton Lewis e Peter Polson foi de com o objetivo de avaliar fluxos de navegação, o quão fácil é navegar por estes fluxos e o quão simples é aprender a usar uma interface.
+Com base no conceito de percurso cognitivo que é uma análise de usabilidade criada  no início dos anos 90, pelas pesquisadoras Cathleen Wharton, John Rieman, Clayton Lewis e Peter Polson foi de com o objetivo de avaliar fluxos de navegação, o quão fácil é navegar por es tes fluxos e o quão simples é aprender a usar uma interface.
 
-Para levantamento da informações foi selecionada uma amostra de dez usuários utilizando a técnica de Amostragem por Escolha e aplicado um formulário do tipo questionário, utilizando a ferramenta do Google Forms, onde se pede para responder o grau de satisfatibilidade em relação aos módulos de comentários e avaliações assim como foi disponibilizado um campo para responder se o usuário teve alguma dificuldade no entendimento dos módulos e um campo para sugestões de melhoria.
+Para levantamento da informações foi selecionada uma amostra de trinta(30 ) usuários utilizando a técnica de \textit{Amostragem por Escolha}\footnote{ Na amostragem por escolha o pesquisador busca na população uma parte dela que interessa, ou seja, os participantes são escolhidos por terem uma ou mais características específicas.}
+e aplicado um formulário do tipo questionário, utilizando a ferramenta do Google Forms, onde se pede para responder se o objetivo das funcionalidades realizar comentário e avaliação foram alcançados e o  grau de satisfatibilidade em relação a esses respectivos módulos assim como foi disponibilizado um campo para responder se o usuário teve alguma dificuldade no entendimento dos módulos e um campo para sugestões de melhoria.
+
 
 \section{Resultados} 
+Consideremos o questionário aplicado pelo formulário de avaliação contido no apêndice deste trabalho. 
+\begin{itemize}
+\item{\textbf{ Pergunta 1}}
+\textit{Em relação do módulo de comentários, o objetivo de realizar um comentário foi atingido?}.
 
+O resultado obtido na imagem \ref{fig:grafico_pergunta1} demonstra que em todas as tentativas para a realização de um comentário no SICAD o objetivo foi atingido, ou seja, o sistema cumpre a funcionalidade descrita neste trabalho.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{grafico_pergunta1.png}
+\caption{Gráfico Pergunta 1.}
+\label{fig:grafico_pergunta1}
+\end{figure}
+
+\item{\textbf{ Pergunta 2}}
+\textit{Como você se sente em relação ao objetivo de realizar um comentário?}.
+
+Observa-se na imagem \ref{fig:grafico_pergunta2} que o grau de satisfatibilidade foi alcançado visto que   
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{grafico_pergunta2.png}
+\caption{Gráfico Pergunta 2.}
+\label{fig:grafico_pergunta2}
+\end{figure}
+
+\item{\textbf{ Pergunta 3}}
+\textit{Em relação do módulo de avaliação, o objetivo de realizar um avaliação foi atingido?}.
+
+Como se pode observar na imagem \ref{fig:grafico_pergunta3} em todas as tentativas na realização de uma avaliação na aplicação o objetivo foi atingido com exito, demostrando que a funcionalidade está operando de acordo como esperado.  
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{grafico_pergunta3.png}
+\caption{Gráfico Pergunta 3.}
+\label{fig:grafico_pergunta3}
+\end{figure}
+
+\item{\textbf{ Pergunta 4}}
+\textit{Como você se sente em relação ao objetivo de realizar uma avaliação?}.
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{grafico_pergunta4.png}
+\caption{Gráfico Pergunta 4}
+\label{fig:grafico_pergunta4}
+\end{figure}
+\end{itemize}
+
+Conclui-se que o objetivo da ferramenta descrita neste trabalho cumpre sua finalidade para registrar comentários e avaliações. 
 
 %-------------Capítulo 5-----------------
 \chapter{Considerações Finais}
@@ -866,7 +951,9 @@ A falta de transparência em relação aos resultados do procedimento de avalia�
 As limitações do sistema utilizado pela UFBA e falha no processo de divulgação dos resultados mostraram a necessidade do desenvolvimento de uma nova aplicação com objetivos similares ao sistema utilizado pela universidade porém que  utilizasse tecnologias contemporâneas e seguindo tendências atuais. 
 
 A partir desta necessidade surge então o Sistema Colaborativo de Avaliação Docente, uma aplicação web onde o aluno pode contribuir diretamente para a melhoria  da qualidade pedagógica e da qualidade de ensino dos professores, compartilhando suas experiências vividas em sala de aula em forma de sugestões ou críticas construtivas, realizar avaliações utilizando conceitos
-já conhecido pelo sistema avaliativo utilizado oficialmente pela universidade e . Este modelo é pensado para propiciar a máxima relevância e qualidade das avaliações postadas, pois possibilita uma descrição empírica da experiência acadêmica do aluno, bem como a geração de estatísticas que podem ser úteis tanto para a autoavaliação docente como para o discente  hora de decidir sua matrícula.
+já conhecidos pelo instrumento avaliativo utilizado oficialmente pela universidade processando os dados informados e transformando-os em resultados relevantes à comunidade acadêmica .
+
+Este modelo é pensado para propiciar a máxima relevância e qualidade das avaliações postadas, pois possibilita uma descrição empírica da experiência acadêmica do aluno, bem como a geração de estatísticas que podem ser úteis tanto para a autoavaliação docente como para o discente  hora de decidir sua matrícula.
 
 Para trabalhos futuros, os objetos da avaliação docente poderão ser melhorados a fim de serem mais assertivos, processo que poderá envolver profissionais da área de Educação para um refinamento mais objetivo e menos generalista como é apresentado no atual instrumento avaliativo utilizado pela universidade assim como a implementação de uma autoavaliação do discente que é um exercício de reflexão fundamental para todas as pessoas. 
 %-------------Bibliografia------------------
